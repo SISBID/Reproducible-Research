@@ -1,0 +1,82 @@
+---
+title: "RR Short Course Homeworks"
+author: "Keith Baggerly"
+date: ''
+output:
+  html_document:
+    number_sections: yes
+  pdf_document: default
+---
+
+# Day 1
+
+## Part 1
+
+Write a minimal toy R package
+  
+- add a README
+- add a vignette
+- add some data
+- Can you write a minimal R package in 15 minutes or less?
+  
+## Part 2
+
+Obtain the mutation information for your
+favorite gene from the [TumorPortal](http://www.tumorportal.org/)
+  
+- do the mutation patterns differ by known subtypes? 
+  Some of these include estrogen receptor (ER) status in breast cancer (BRCA),
+  HER2 status in BRCA, tissue source site in sarcoma (SARC), and 
+  serous/endometriod status in uterine cancer (UCEC).
+- Are there other features of the data you'd like clarification on?
+- write up your analysis as a vignette
+- include your analysis and the TumorPortal data in 
+  an R package
+
+## Part 3
+
+(Evening) Read [Potti et al (2006)](http://www.nature.com/nm/journal/v12/n11/abs/nm1491.html), [our letter](http://www.nature.com/nm/journal/v13/n11/full/nm1107-1276b.html) and [the response](http://www.nature.com/nm/journal/v13/n11/full/nm1107-1277.html), and [Brad Perez's letter](http://www.cancerletter.com/articles/20150109_1).
+  
+- What would you do? Discuss. 
+
+
+# Day 2
+
+## Part 1
+
+Put your toy package in a git repository
+
+- put the repository on github  
+- clone your neighbor's repository
+- add a new function to your neighbor's package
+- submit a pull request to add your package to 
+  his github repository
+- incorporate your neighbor's suggested functions
+  into your package
+  
+## Part 2
+
+- repeat part 1 with your mutation analysis
+- do the mutation patterns differ by [run batch](https://tcga-data.nci.nih.gov/tcgafiles/ftp_auth/distro_ftpusers/anonymous/other/metadata/metadata.current.txt)?
+- post it to github
+- read and comment on your neighbor's analysis
+- are there sanity checks you might employ?
+  
+## Part 3
+  
+(Evening) Read [Petricoin et al (2002)](http://www.sciencedirect.com/science/article/pii/S0140673602077462), our [Bioinformatics paper](http://bioinformatics.oxfordjournals.org/content/20/5/777.long), and [Leek et el (2010)](http://www.nature.com/nrg/journal/v11/n10/full/nrg2825.html).
+  
+- Where have you encountered batch effects?
+- Are there ways in testing for batch effects?
+- What sanity checks do you employ regularly?
+  
+# Day 3
+
+Structure your Tumor Analysis _as a report_, and include your report in your package as a vignette
+  
+- Include an Executive Summary
+- Include a Figure
+- What do positive and negative numbers mean?
+- include sessionInfo()
+- post it to github
+- read and comment on your neighbor's report
