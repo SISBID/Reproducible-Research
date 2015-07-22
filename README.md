@@ -123,6 +123,9 @@ Roger Peng
 
 * More Day 3 Homework
 * Final Class Discussion (30 min)
+* Wrapup Notes 
+[pdf (100K)](2015_SISBID_5_17_wrapup.pdf)
+[printable pdf (100K)](2015_SISBID_5_17_wrapup_printable.pdf)
 
 
 # Recommended Reading/Browsing
