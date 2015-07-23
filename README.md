@@ -87,6 +87,8 @@ Roger Peng
 * Git/GitHub, Part 1 (45 min) 
 [pdf (4.7M)](2015_SISBID_5_13_git_part_1.pdf)
 [printable pdf (4.7M)](2015_SISBID_5_13_git_part_1_printable.pdf)
+[Installing Git on Windows (video)](https://panopto-a.akamaihd.net/sessions/40f5cc37-b919-413d-bf3a-759aa134482b/89c6fa1e-7f51-406e-87ae-8d21659275fb-74d1ca15-867e-41ba-8f39-ddce7e64f39e.mp4?invocationId=9abe93e4-4224-e511-9466-22000b010df0)
+[Installing Git on Windows (document)](http://www.biostat.washington.edu/sites/www/content/files/Summer_Institute_in_Statistics_for_Big_Data/Course_Materials_&amp;_Software/editing_path.pdf)
 
 * [Installing Git on Windows (video)](https://panopto-a.akamaihd.net/sessions/40f5cc37-b919-413d-bf3a-759aa134482b/89c6fa1e-7f51-406e-87ae-8d21659275fb-74d1ca15-867e-41ba-8f39-ddce7e64f39e.mp4?invocationId=9abe93e4-4224-e511-9466-22000b010df0)
 
