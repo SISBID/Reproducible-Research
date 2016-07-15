@@ -1,7 +1,7 @@
 ---
 title: 'SISBID 2016 Module 3: Reproducible Research'
 author: "Keith Baggerly"
-date: "July 18-20, 2015"
+date: "July 18-20, 2016"
 output: html_document
 ---
 
