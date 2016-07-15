@@ -58,7 +58,7 @@ This is from GitHub
 [pdf (260K)](2016_SISBID_3_06_basic_intro.pdf)
 [printable pdf (260K)](2016_SISBID_3_06_basic_intro_printable.pdf)
 * General Intro to RR (75 min) 
-[printable pdf (4M)](2016_SISBID_3_07_broad_intro_to_rr_printable.pdf)
+[printable pdf (3.4M)](2016_SISBID_3_07_broad_intro_to_rr_printable.pdf)
 
 ### Session 2, 10:30-12
 
