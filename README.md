@@ -32,9 +32,9 @@ Roger Peng
 * Supplementary Data for Homework   
 [.RData (75M)](http://odin.mdacc.tmc.edu/~kabaggerly/SISBID/homework.RData) 
 * About the Homework Data   
-[pdf (160K)](2016_SISBID_3_03_about_the_homework_data.pdf), 
-[html (650K)](2016_SISBID_3_03_about_the_homework_data.html),
-[Rmd Source (12K)](2016_SISBID_3_03_about_the_homework_data.Rmd)
+[pdf (160K)](2016_SISBID_3_03_about_the_homework.pdf), 
+[html (650K)](2016_SISBID_3_03_about_the_homework.html),
+[Rmd Source (12K)](2016_SISBID_3_03_about_the_homework.Rmd)
 
 # Cheat Sheets (idea stolen from [Karl Broman](https://kbroman.wordpress.com/2015/04/29/cheat-sheets-for-r-based-software-carpentry-course/))
 
