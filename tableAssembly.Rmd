@@ -1,0 +1,189 @@
+---
+title: "Reviewing Vitamin D Papers Used to Develop RDA"
+author: "Keith Baggerly"
+date: "July 15, 2016"
+output: html_document
+---
+
+# Executive Summary
+
+## Introduction
+
+In 2010, the Institute of Medicine (IOM) released a report updating the Dietary Reference Intake (DRI) values for vitamin D and calcium. This report described a review of the existing literature, and how information was combined from these studies to estimate the 
+
+* Estimated Average Requirement (EAR) for health benefit
+* Recommended Daily Allowance (RDA), which should be enough for roughly 97.5\% of the population to reach the EAR, and
+* Tolerable Upper Intake Level (UL), the highest dose at which it is reasonable to expect no adverse effects.
+
+Here, we review the papers upon which the RDA is based. 
+
+## Data and Methods
+
+The IOM report describes assembling the RDA in Chapter 5. In particular, Table 5.4 lists the studies specifically reviewed, and Figures 5.3 and 5.4 show how models were fit to a subset of the data to relate supplement intake levels to achieved serum levels. Given the specified EAR of 50 nmol/L, the text then describes selection of a dose such that the entire confidence band at this dose would be above the EAR.
+
+The text specifically names 10 papers, all describing randomized double-blind trials (most placebo controlled), which supplied the raw data used.
+
+We read through these papers to independently extract the raw data values. Specifically, we tried to identify and extract
+
+* numbers of patients in each cohort
+* the age group of the cohort (young, $\le 18$, adult, $\le 60$, or old)
+* their estimated dietary intake in international units (IU)
+* their supplement level in IU
+* their total intake level (diet + supplement) in IU
+* their achieved serum level in nmol/L
+* standard deviations for the above
+
+Since different units are used in reporting both dose and serum levels, we applied the following coversion factors
+
+* 1 microgram = 40 IU
+* 1 ng/mL = 2.496 nmol/L $\approx$ 2.5 nmol/L
+
+to express all data in terms of IU and nmol/L.
+
+For one paper (Viljakainen et al 2006b), we have not yet been able to acquire the full paper, so we are working from values we can infer from the abstract (on PubMed), a separate published review of the paper, and the IOM report.
+
+## Results
+
+Our results by paper are summarized in the main text below. 
+
+For each paper, we recorded the levels we were able to identify and outlined what difficulties we encountered (if any) in doing so. We also noted whether these values agreed with those the IOM reported in their Table 5.4. We summarized these results in **iomReview.csv**.
+This csv file is included as raw data. We also loaded this table into R and saved the result as **vitD.RData**.
+
+For most papers, we were able to readily identify the values sought, and these agreed with values in the IOM table. We also, however, encountered some errors (e.g., the achieved serum level for the placebo group from Van Der Klis et al), some values where we could not match the IOM values (the total intake values for Smith et al), and some cases where we could not find the cohorts and rows reported in the IOM table (rows 3 and 4 for Larsen et al).
+
+## Conclusions
+
+Most of the data can be found, but the imperfections identified suggest the value of a thorough review.
+
+# Studies
+
+## Ala-Houhala et al, 1988
+
+This a randomized, double-blind, placebo-controlled study of prepubertal children in Tampere, Finland (latitude 61 degrees). One month-long interventions were performed in Jan-Feb 1984, Sep-Oct 1984, and Feb-Mar 1985. Serum measurements (in ng/mL) were made at the end of each intervention period; the IOM report uses the values from the last after applying a conversion multiplier of 2.5.
+
+The IOM report notes that baseline intake rates for this population were inferred from Andersen et al (2005).
+
+## Cashman et al, 2008
+
+In this study, the authors used 4 different supplemental doses: 0, 5, 10, and 15 micrograms, or 0, 200, 400, and 600 IU, to see which dose regime would bring most participants to acceptable levels. They consider 3 such levels: 25, 50, and 80 nmol/L.
+
+There were 221 patients who completed the intervention phase, of which roughly half came from Cork, Ireland (latitude 51 degrees) and half from Coleraine, Northern Ireland (lat 55 deg). 
+
+The summary values used in the IOM report are drawn from Table 2, on p1539. This lists
+
+* N for each arm
+* "Habitual dietary intake" of vitamin D by arm, in micrograms
+* Serum 25(OH)D before intervention, by arm, in nmol/L
+* Serum 25(OH)D after intervention, by arm, in nmol/L
+
+The authors do not report standard deviations, because the values didn't appear normally distributed to them. Rather, they reported interquartile ranges. 
+
+Interestingly, they also reported estimated amounts of supplements required to bring 97.5\% of study participants to at least target levels (their Table 3, p1540). The supplement levels required to attain 25, 37.5, 50, and 80 nmol/L were, respectively, 8.7, 19.9, 28.0, and 41.1 micrograms, or 348, 796, 1120, and 1644 IU (`r c(8.7,19.9,28.0,41.1)*40`). These levels are markedly above what the IOM recommends.
+
+## Cashman et al, 2009
+
+In this study, the authors largely mirrored their earlier work save that this study focused on older adults $(\ge 65)$. Again, the relevant numbers are given in Table 2 (now p1370). 
+
+For older adults, the supplement levels required to attain 25, 37.5, 50, and 80 nmol/L (given in Table 3, p1372) were, respectively, 8.6, 17.2, 24.7, and 38.7 micrograms, or 344, 688, 988, and 1548 IU (`r c(8.6,17.2,24.7,38.7)*40`). Again, these levels are markedly above what the IOM recommends.
+
+## Larsen et al, 2004
+
+While Table 5.4 of the IOM report appears to link 4 values to this paper, I can only see how 2 were derived. 
+
+Table 7 of the paper (p396) lists serum levels both 1 and 24 months after initiation of an intervention in a subcohort of 67 treated individuals and 37 controls; values from 1 month were used. 
+
+The IOM report notes that baseline intake rates for this population were inferred from Andersen et al (2005).
+
+## Schou et al, 2003
+
+This was a double-blind, randomized crossover study in which children received either vitamin D followed by placebo (with a washout period in between) or the reverse. There were 20 children in all; 10 received vitamin D then placebo, and 10 received placebo then vitamin D.
+
+The achieved serum levels (in nmol/L) are given in the main body of the text (p216).
+
+As with Larsen et al, the IOM report notes that baseline intake rates for this population were inferred from Andersen et al (2005).
+
+## Smith et al, 2009
+
+This was a randomized double-blind study measuring the effects of supplementation on serum levels in adults during a winter tour at McMurdo station in Antarctica. Part of the goal was to identify useful supplementation levels for space travelers, as 400 IU had been found to be insufficient in this population. There were three treatment groups (400, 1000, and 2000 IU/day), and a smaller group of nonrandomized controls. Blood draws were taken at 3 time points; baseline (5 wks after winter began), winiter week 18, and winter week 25. Nonsupplement vitamin D intake was measured by food logs kept for 1wk prior to each blood assay. This leads to one of the few instances in IOM Table 5.4 where total intake is not simply the sum of baseline intake and supplemental dose; the baseline levels reported in the IOM report were from week 5, but the total intake values used the intake values from week 18. 
+
+The nonsupplemental intake levels are reported in Table 2 (p1094). The serum levels are reported in Table 3 (p1095). The levels from Session 2 (winter week 18) were used, but these are essentially identical to the levels from Session 3. 
+
+## Van Der Klis et al, 1996
+
+This study looked at the effects of supplements on serum levels in pre- and post-menopausal women in both the Netherlands (latitude 52 degrees) and Curacao (latitude 12.15 degrees). Only the results for postmenopausal women from the Netherlands were used in the IOM report. 
+
+The IOM report notes that baseline intake rates for this population were inferred from Bergink et al (2009).
+
+The baseline levels for all postmenopausal women in the Netherlands are given in Table 1 (p640). While the IOM report records a mean of 61.2 and an sd of 2.4, these values are actually from the wrong column of the table and correspond to participant _ages_. The baseline serum 25(OH)D levels have a mean of 58.5 and an sd of 23.8. 
+
+With respect to levels following treatment, the authors simply noted (in the text, p642) that levels in the placebo group were not sigificantly different from their baseline levels, and levels in the two intervention groups were not significantly different from each other. Thus, they (a) do not give numerical values for the control group, and (b) they only give numerical values for the intervention groups _after pooling_. I would much prefer to see the individual group values. 
+
+## Viljakainen et al, 2006a (JBMR)
+
+This is a randomized, double-blind, placebo-controlled study of the effects of a year-long supplementation program (at doses of 5 or 10 micrograms per day, aka 200 or 400 IU/day) on bone health in adolescent girls. 
+
+Dietary intake levels of vitamin D as well as baseline serum levels for all three groups are reported in Table 1 (p839) for all 212 girls for whom blood samples were acquired after 12 months. The numbers of girls in the 0, 5, and 10 microgram cohorts are 73, 65, and 74, respectively. The IOM report lists 64 for the last, which is a typo. 
+
+Changes in levels relative to baseline are given in Table 2 (p840). Standard deviations are also reported, but these appear to be standard deviations of the differences, not of the final levels achieved, which thus factor out a good deal of the patient to patient heterogeneity. 
+
+If the differences were completely independent of baseline, we could add variances and take square roots, but in this case using the standard deviations of the values seen at baseline strikes me as an alternative. 
+
+On balance, I prefer adding variances and square-rooting, because it indicates a greater level of uncertainty about the value we actually want to describe. So, the mean serum values for 0, 5, and 10 microgram intervention groups are c(47.8 - 5, 46.3 + 5.4, 46.7 + 12.1) or c(42.8, 51.7, 58.8) and the sds are sqrt(c($18.2^2 + 11.9^2, 17.4^2 + 15.3^2, 16.2^2 + 13.5^2$)) or c(21.7, 23.2, 21.1).
+
+## Viljakainen et al, 2006b
+
+I have not yet been able to acquire a copy of the initial paper itself. Rather, I have worked from the PubMed abstract
+
+http://www.ncbi.nlm.nih.gov/pubmed/17031013
+
+and the NSUP summary
+
+https://www.andeal.org/worksheet.cfm?worksheet_id=253820
+
+This study involved a randomized placebo-controlled trial of supplement intervention in elderly women in Helsinki. Cohorts received 0, 5, 10, or 20 micrograms of vitamin D/day, aka 0, 200, 400, or 800 IU/day). 
+
+There were 52 women initially randomized, of which 3 were lost to attrition during the course of the study. Arm numbers are drawn from the IOM's Table 5.4. 
+
+Baseline serum levels taken from the NSUP report are c(52.2, 46.0, 46.5, 44.1); these numbers match those given in the IOM's Table 5.4 where standard deviations are also given. 
+
+Deltas in serum levels of c(-8.3, 10.9, 14.4, 23.7) are given in the IOM Table and in the paper abstract, but not in the paper abstract. 
+
+The abstract and the NSUP report note that levels "stabilized" after 6 weeks of treatment and gives levels, but since the trial itself was 12 weeks, the IOM (reasonably) just uses the final baseline+delta values of c(43.9, 56.9, 60.9, 67.8).
+
+Dietary intake values are given in the NSUP report as c(10.9, 9.7, 10.6, 9.7) micrograms/day, or c(436, 388, 424, 388) IU/day, matching values in the IOM table.
+
+As with Viljakainen 2006a, standard deviations are given for the deltas, not the final levels attained. The baseline sds from the IOM Table are c(19.9, 14.3, 10.2, 13.5). The delta sds from the paper abstract and the IOM table are c(13.2 or 13.2, 8.5 or 8.9, 6.9 or 4, 11.9 or 11.9); using just the abstract numbers we have c(13.2, 8.5, 6.9, 11.9). Combining the baseline and delta variances and square rooting as above gives 
+
+```{r commonSd}
+
+sqrt(c(19.9, 14.3, 10.2, 13.5)^2 + c(13.2, 8.5, 6.9, 11.9)^2)
+
+```
+
+or c(23.9, 16.6, 12.3, 18.0).
+
+## Viljakainen et al, 2009
+
+This was a randomized, double-blind, placebo-controlled study of the effects of supplementation on serum levels in healthy men (21-49 years old) in Helsinki, Finland. The three supplement levels were c(0, 10, 20) micrograms/day, or c(0, 400, 800) IU/day. 
+
+Mean baseline serum levels (from Table 1, p348) were c(64.7, 60.3, 62.3) for the c(0, 400, 800) IU/day dose groups.
+
+The associated standard deviations were c(18.5, 11.6, 13.6).
+
+These numbers match those in the IOM table. 
+
+Baseline vitamin D mean intakes were c(6.6, 7.6, 8.6) ug/day, or c(264, 304, 344) IU/day.
+
+The associated sds were c(2.8, 5.5, 6.3) ug/d, or c(112, 220, 252) IU/d. The IOM table lists 2202 for the middle group; this is a typo.
+
+The deltas in mean levels are mentioned in the text (p349); these are c(-12.5, 15.3, 27.8), with associated sds of c(9.1, 14.4, 17.5). The IOM table lists the second sd as 2.3; this appears to be from the statement in the line above in the paper that "The difference between the 10- and 20-mg groups was 4.5 ± 2.3 (SE) nM (p = 0.064)."
+
+Again, we add variances, getting
+
+```{r addVars}
+
+sqrt(c(18.5, 11.6, 13.6)^2 + c(9.1, 14.4, 17.5)^2)
+
+```
+
+or c(20.6, 18.5, 22.2).

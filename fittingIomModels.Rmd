@@ -1,0 +1,245 @@
+---
+title: "Modeling Vitamin D Serum Level as a Function of Intake"
+author: "Keith Baggerly"
+date: "July 16, 2016"
+output: pdf_document
+---
+
+# Executive Summary
+
+## Introduction
+
+In 2010, the Institute of Medicine (IOM) released a report updating the Dietary Reference Intake (DRI) values for vitamin D and calcium. In an earlier report, we described our own independent assembly of the raw values. Here, we describe our attempts to (1) fit models to the data relating total vitamin D intake (TI, diet + supplement) to achieved serum level (SL), and to (2) identify a RDA supplement value for most of the population to reach a serum level adequate for benefit.
+
+## Data and Methods
+
+We use the table of data values, vitD.RData, we assembled in our previous report.
+
+Following the IOM report (add page number and quote here), we fit linear mixed effect (LME) values of the form
+
+SL = b*(log(TI) + random effect by study) + noise
+
+We use the R package lme4 to fit models for 
+
+* all studies
+* only studies with young participants
+* only studies with adult participants
+* only studies with old participants
+
+We plotted the data using color and symbol to indicate study and age group respectively, and superimposed confidence intervals.
+
+## Results
+
+Our model fits differ slightly from those reported by the IOM.
+
+*Need to list our results by fit here*
+
+Further, these fits show clearly that the confidence intervals used by the IOM are based on the standard errors of the mean for all studies, and not on the overall standard deviation. Thus, the confidence intervals are too narrow by roughly a factor of 3 solely in terms of the random effect, and would need to be wider yet to allow for variation between individual participants within a study. 
+
+## Conclusions
+
+The IOM's RDA is is too low by roughly an order of magnitude.
+
+# Load Data and Libraries
+
+We begin by loading the data and libraries we need for this report.
+
+```{r loadData}
+
+library(lme4)
+
+vitD <- read.csv("iomReview.csv")
+vitD <- vitD[!is.na(vitD[,"N"]),]
+
+```
+
+
+# Plot Data
+
+Next, we plot the data as presented in the IOM report.
+
+```{r plotDataAsPresented}
+
+plot(vitD[,"IOMIntake"], 
+     vitD[,"IOMLevel"], 
+     pch=vitD[,"PlotSymbol"], 
+     bg=as.character(vitD[,"Color"]), cex=2,
+     xlab="Vit D Intake in IU",
+     ylab="Serum 25(OH)D in nmol/L",
+     main="Data from Studies Used for\nIOM Vit D Review, 2010",
+     ylim=c(0,110))
+
+```
+
+Next, we plot the data after log-transforming the x-values, as was done for modeling purposes.
+
+```{r plotDataWLog}
+
+plot(log(vitD[,"TotalIntake"]), 
+     vitD[,"AchievedLevel"], 
+     pch=vitD[,"PlotSymbol"], 
+     bg=as.character(vitD[,"Color"]), cex=2,
+     xlab="Log(Vit D Intake in IU)",
+     ylab="Serum 25(OH)D in nmol/L",
+     main="Studies Used by IOM Vit D Review, 2010",
+     xlim=c(0,8), ylim=c(0,110))
+
+```
+
+# Fit Models
+
+Now we fit linear mixed effect models of the form specified in the IOM report. Since some of the values we found didn't precisely match those in the IOM report, we have fit the models both with the data we think the IOM used (taken from their Table 5.4) and with the data we think should apply.
+
+## Fitting All Studies
+
+```{r fitLme}
+
+library(lme4)
+
+vitDModel <- 
+  lmer(AchievedLevel ~ -1 + log(TotalIntake) + 
+         (-1 + log(TotalIntake)|Study),
+       data=vitD)
+
+vitDModelIom <- 
+  lmer(IOMLevel ~ -1 + log(IOMIntake) + 
+         (-1 + log(IOMIntake)|Study),
+       data=vitD)
+
+summary(vitDModel)
+summary(vitDModelIom)
+
+```
+
+## Fitting Studies Involving Young Participants
+
+```{r fitYoung}
+
+vitDYoung <- 
+  lmer(AchievedLevel ~ -1 + log(TotalIntake) + 
+         (-1 + log(TotalIntake)|Study),
+       data=vitD[vitD[,"Age.Group"]=="Young",])
+
+vitDYoungIom <- 
+  lmer(IOMLevel ~ -1 + log(IOMIntake) + 
+         (-1 + log(IOMIntake)|Study),
+       data=vitD[vitD[,"Age.Group"]=="Young",])
+
+summary(vitDYoung)
+summary(vitDYoungIom)
+
+```
+
+
+## Fitting Studies Involving Adult Participants
+
+```{r fitAdult}
+
+vitDAdult <- 
+  lmer(AchievedLevel ~ -1 + log(TotalIntake) + 
+         (-1 + log(TotalIntake)|Study),
+       data=vitD[vitD[,"Age.Group"]=="Adult",])
+
+vitDAdultIom <- 
+  lmer(IOMLevel ~ -1 + log(IOMIntake) + 
+         (-1 + log(IOMIntake)|Study),
+       data=vitD[vitD[,"Age.Group"]=="Adult",])
+
+summary(vitDAdult)
+summary(vitDAdultIom)
+
+```
+
+
+## Fitting Studies Involving Old Participants
+
+```{r fitOld}
+
+vitDOld <- 
+  lmer(AchievedLevel ~ -1 + log(TotalIntake) + 
+         (-1 + log(TotalIntake)|Study),
+       data=vitD[vitD[,"Age.Group"]=="Old",])
+
+vitDOldIom <- 
+  lmer(IOMLevel ~ -1 + log(IOMIntake) + 
+         (-1 + log(IOMIntake)|Study),
+       data=vitD[vitD[,"Age.Group"]=="Old",])
+
+summary(vitDOld)
+summary(vitDOldIom)
+
+```
+
+## Estimating Individual Dataset Slopes
+
+```{r estimateSlopes}
+
+studyNames <- levels(vitD[,"Study"])
+studyNames <- studyNames[studyNames != ""]
+
+nStudies <- length(studyNames)
+studySlopes <- rep(0, nStudies)
+names(studySlopes) <- studyNames
+
+for(i1 in 1:nStudies){
+
+  tempModel <- lm(AchievedLevel ~ -1 + log(TotalIntake),
+                  data=vitD[vitD[,"Study"]==studyNames[i1],])
+  studySlopes[studyNames[i1]] <- tempModel[["coefficients"]]
+  
+}
+
+```
+
+## Plot Data with CIs
+
+Next, we plot the data with CIs reported by the IOM. These add/subtract twice the "Std. Error" values as reported by the
+data summary.
+
+```{r plotDataWithCIs}
+
+plot(vitD[,"IOMIntake"], 
+     vitD[,"IOMLevel"], 
+     pch=vitD[,"PlotSymbol"], 
+     bg=as.character(vitD[,"Color"]), cex=2,
+     xlab="Vit D Intake in IU",
+     ylab="Serum 25(OH)D in nmol/L",
+     main="Data from Studies Used for\nIOM Vit D Review, 2010",
+     ylim=c(0,110))
+
+ciX <- seq(from=1, to=2400, by=1)
+lines(ciX, 9.613*log(ciX))
+lines(ciX, (9.613 - 2*0.6392)*log(ciX), lty="dashed")
+lines(ciX, (9.613 + 2*0.6392)*log(ciX), lty="dashed")
+
+abline(h=50)
+abline(v=600)
+
+```
+
+Next, we plot the data also using the CIs we think should apply. These add/subtract twice the "Std. Dev." values as reported by the
+data summary.
+
+```{r plotDataWithRightCIs}
+
+plot(vitD[,"IOMIntake"], 
+     vitD[,"IOMLevel"], 
+     pch=vitD[,"PlotSymbol"], 
+     bg=as.character(vitD[,"Color"]), cex=2,
+     xlab="Vit D Intake in IU",
+     ylab="Serum 25(OH)D in nmol/L",
+     main="Data from Studies Used for\nIOM Vit D Review, 2010",
+     ylim=c(0,110))
+
+ciX <- seq(from=1, to=2400, by=1)
+lines(ciX, 9.613*log(ciX))
+lines(ciX, (9.613 - 2*0.6392)*log(ciX), lty="dashed")
+lines(ciX, (9.613 + 2*0.6392)*log(ciX), lty="dashed")
+lines(ciX, (9.613 - 2*1.927)*log(ciX), lty="dashed", col="red")
+lines(ciX, (9.613 + 2*1.927)*log(ciX), lty="dashed", col="red")
+
+abline(h=50)
+abline(v=600)
+
+```
+
