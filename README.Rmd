@@ -74,6 +74,7 @@ This is from GitHub
 * Assembling R Packages (1hr) 
 [pdf (163K)](2016_SISBID_3_10_r_packages.pdf) 
 [printable pdf (162K)](2016_SISBID_3_10_r_packages_printable.pdf)
+* RStudio R package [pre-flight check list](https://github.com/rdpeng/daprocedures/blob/master/lists/Rpackage_preflight.md)
 * More Day 1 Homework (build a toy package)
 
 This session will be a mix of lecture and live demo.
