@@ -60,6 +60,10 @@ This is from GitHub
 * General Intro to RR (75 min) 
 [printable pdf (3.4M)](2016_SISBID_3_07_broad_intro_to_rr_printable.pdf)
 
+* [Getting crushed on the Internet](http://simplystatistics.org/2015/11/16/so-you-are-getting-crushed-on-the-internet-the-new-normal-for-academics/)
+
+* [Making your work reproducible](http://simplystatistics.org/2015/12/11/instead-of-research-on-reproducibility-just-do-reproducible-research/)
+
 ### Session 2, 10:30-12
 
 * The Duke Saga (45 min) 
