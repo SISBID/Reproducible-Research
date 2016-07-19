@@ -121,6 +121,9 @@ This session will be a mixture of lecture and live demo.
 
 * Prevention vs Cure (45 min)
 [printable pdf (1.7M)](2016_SISBID_3_15_prevention_printable.pdf)
+
+* [ROC Curves of Science](http://simplystatistics.org/2013/08/01/the-roc-curves-of-science/)
+
 * More Day 2 Homework (responding to changes suggested)
 
 ### Session 8, 3:30-5
