@@ -32,9 +32,9 @@ Roger Peng
 * Supplementary Data for Homework   
 [.RData (75M)](http://odin.mdacc.tmc.edu/~kabaggerly/SISBID/homework.RData) 
 * About the Homework Data   
-[pdf (160K)](2016_SISBID_3_03_about_the_homework.pdf), 
-[html (650K)](2016_SISBID_3_03_about_the_homework.html),
-[Rmd Source (12K)](2016_SISBID_3_03_about_the_homework.Rmd)
+[pdf (160K)](2016_SISBID_3_03_about_the_homework_data.pdf), 
+[html (650K)](2016_SISBID_3_03_about_the_homework_data.html),
+[Rmd Source (12K)](2016_SISBID_3_03_about_the_homework_data.Rmd)
 
 # Cheat Sheets (idea stolen from [Karl Broman](https://kbroman.wordpress.com/2015/04/29/cheat-sheets-for-r-based-software-carpentry-course/))
 
@@ -121,6 +121,9 @@ This session will be a mixture of lecture and live demo.
 
 * Prevention vs Cure (45 min)
 [printable pdf (1.7M)](2016_SISBID_3_15_prevention_printable.pdf)
+
+* [ROC Curves of Science](http://simplystatistics.org/2013/08/01/the-roc-curves-of-science/)
+
 * More Day 2 Homework (responding to changes suggested)
 
 ### Session 8, 3:30-5
@@ -166,3 +169,4 @@ This session will be a mixture of lecture and live demo.
 * [Petricoin et al, Lancet (2002)](http://www.sciencedirect.com/science/article/pii/S0140673602077462)
 * [Baggerly et al, Bioinformatics (2004)](http://bioinformatics.oxfordjournals.org/content/20/5/777.long)
 * [Leek et el, Nat Rev Genet (2010)](http://www.nature.com/nrg/journal/v11/n10/full/nrg2825.html)
+
