@@ -1,0 +1,12 @@
+Links to other resources:
+
+-Writing reports
+https://www.amazon.com/Style-Lessons-Clarity-Grace-11th/dp/0321898680
+http://www.americanscientist.org/issues/pub/the-science-of-scientific-writing/1
+
+-Using c++ code in Rpackages
+https://www.amazon.com/Seamless-Integration-Rcpp-Dirk-Eddelbuettel/dp/1461468671/ref=sr_1_1?s=books&ie=UTF8&qid=1469034821&sr=1-1&keywords=Rcpp
+
+-Better graphics
+http://ggplot2.org/book/
+
