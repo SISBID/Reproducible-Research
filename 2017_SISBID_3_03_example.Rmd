@@ -1,0 +1,55 @@
+---
+title: "Baby names"
+author: "Karl Broman"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r global_opts, include=FALSE}
+knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+```
+
+We first want to load some packages.
+
+```{r load_packages}
+library(babynames)
+library(dplyr)
+library(ggplot2)
+library(DT)
+library(plotly)
+```
+
+I'm interested in the relative use of the names "Karl" and "Carl". Let's filter out just those rows from the `babynames` data.
+
+```{r, filter_karl}
+karl <- babynames %>%
+    filter(name=="Karl" | name=="Carl")
+```
+
+The results include `r nrow(karl)` rows.
+
+Here's an interactive table, using the package [DT](https://github.com/rstudio/DT):
+
+```{r datatable}
+DT::datatable(karl)
+```
+
+Plot the results.
+
+```{r lineplot}
+ggplot(karl, aes(x=year, y=prop, color=name)) + geom_line()
+```
+
+That's weird. Turns out there were a small number of female Karls.
+
+```{r lineplot_bysex}
+ggplot(karl, aes(x=year, y=prop, color=name, linetype=sex)) +
+    geom_line()
+```
+
+Here's an interactive version using the package [plotly](https://plot.ly/r/).
+
+```{r plotly, fig.width=12, fig.height=7}
+p <- ggplot(karl, aes(x=year, y=prop, color=name, linetype=sex)) + geom_line()
+plotly::ggplotly(p)
+```
