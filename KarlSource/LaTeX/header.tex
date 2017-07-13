@@ -7,14 +7,14 @@
 % font
 \usepackage{fontspec}
 \setsansfont
-  [ ExternalLocation = ../fonts/ ,
-    UprightFont = *-regular , 
+  [ ExternalLocation = fonts/ ,
+    UprightFont = *-regular ,
     BoldFont = *-bold ,
     ItalicFont = *-italic ,
     BoldItalicFont = *-bolditalic ]{texgyreheros}
 \setbeamerfont{note page}{family*=pplx,size=\footnotesize} % Palatino for notes
 % "TeX Gyre Heros can be used as a replacement for Helvetica"
-% I've placed them in ../fonts/; alternatively you can install them
+% I've placed them in fonts/; alternatively you can install them
 % permanently on your system as follows:
 %     Download http://www.gust.org.pl/projects/e-foundry/tex-gyre/heros/qhv2.004otf.zip
 %     In Unix, unzip it into ~/.fonts
@@ -104,4 +104,3 @@
 \newcommand{\ttfn}{\tt \footnotesize}
 \newcommand{\figh}[2]{\centerline{\includegraphics[height=#2\textheight]{#1}}}
 \newcommand{\figw}[2]{\centerline{\includegraphics[width=#2\textwidth]{#1}}}
-
