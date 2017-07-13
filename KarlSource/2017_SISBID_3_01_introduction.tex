@@ -72,6 +72,75 @@ reproducible research.
 \end{frame}
 
 
+\begin{frame}[c]{}
+\centering
+{\Large The results in Table 1 don't seem to \\[12pt]
+correspond to those in Figure 2.}
+
+\note{My computational life is not entirely rosy. This is the sort of
+  email that will freak me out.}
+\end{frame}
+
+
+\begin{frame}[c]{}
+\centerline{\Large In what order do I run these scripts?}
+
+\note{Sometimes the process of data file manipulation and data
+  cleaning gets spread across a bunch of scripts that need to be
+  executed in a particular order. Will I record this information? Is
+  it obvious what script does what?}
+\end{frame}
+
+
+
+\begin{frame}[c]{}
+\centerline{\Large Where did we get this data file?}
+
+\note{Record the provenance of all data or metadata files.}
+\end{frame}
+
+
+
+\begin{frame}[c]{}
+\centerline{\Large Why did I omit those samples?}
+
+\note{I may decide to omit a few samples. Will I record {\nhilit why}
+  I omitted those particular samples?}
+\end{frame}
+
+
+
+\begin{frame}[c]{}
+\centerline{\Large How did I make that figure?}
+
+\note{Sometimes, in the midst of a bout of exploratory data analysis,
+  I'll create some exciting graph and have a heck of a time
+  reproducing it afterwards.}
+\end{frame}
+
+
+
+\begin{frame}[c]{}
+\centerline{\Large ``Your script is now giving an error."}
+
+\note{It was working last week. Well, last month, at least.
+
+How easy is it to go back through that script's history to see where
+and why it stopped working?}
+\end{frame}
+
+
+
+\begin{frame}[c]{}
+\centerline{\Large ``The attached is similar to the code we used."}
+
+\note{From an email in response to my request for code used for a
+  paper.}
+\end{frame}
+
+
+
+
 
 
 \begin{frame}[c]{}
@@ -143,15 +212,13 @@ Reproducible
 
 \bi
 \itemsep12pt
-\item Everything via code
-\item Everything automated
-    \bi
-    \item[] Workflow and dependencies clearly documented
-    \ei
-\item Get the data in the most-raw form possible
-\item Get any/all data and meta-data possible
+\item Project encapsulated in one directory
+\item Organize and document
 \item Keep track of the {\color{hilit} provenance} of all data files
-\item Be self-sufficient
+\item Everything via code
+\item Use a version control system
+\item Keep track of versions of dependencies
+\item Everything automated
 \ei
 
 \note{Pointing and clicking is not reproducible. Ideally, you press
@@ -169,6 +236,10 @@ If your collaborator asks, ``In what form would you like the data?''
 you should respond, ``In its current form.''
 }
 \end{frame}
+
+
+
+
 
 \begin{frame}{Why do we care?}
 
@@ -192,40 +263,8 @@ Your code and analyses will be easier to debug, maintain, and extend.
 \end{frame}
 
 
-\begin{frame}[c]{}
 
-\centering
-\large
-Your closest collaborator is you six months ago, but you
-don't reply to emails.
-\note{I heard this from Paul Wilson, UW-Madison.
-
-
-  I think he got it from a tweet by Karen Cranston: {\tt
-    http://bit.ly/motivate\_git}
-}
-\end{frame}
-
-
-\begin{frame}{What could go wrong?}
-
-\vspace{24pt}
-
-\bi
-\itemsep12pt
-\item "The attached is similar to the code we used."
-\item "Where did this data file come from?!"
-\item "Can you repeat the analysis, omitting subject X?"
-\item "This part of your script is now giving an error."
-\ei
-
-\note{If you've not heard any of these things, it's just a matter of
-  time.
-}
-\end{frame}
-
-
-\begin{frame}{Need to avoid}
+\begin{frame}{Try to avoid}
 
 
 \vspace{24pt}
@@ -244,6 +283,41 @@ don't reply to emails.
 }
 \end{frame}
 
+\begin{frame}{Problem: Variations across data files}
+
+\vspace{24pt}
+
+\bi
+\item Different files (or parts of files!) may have different formats.
+\item Variables (or factor levels) may have different names in
+  different files.
+\item The names of files may inconsistent.
+\ei
+
+\bigskip
+
+\bi
+\item It's tempting to hand-edit the files. {\vhilit Don't!}
+\item Create another meta-data file that explains what's what.
+\ei
+
+\note{Scientists aren't trained in how to organize data.
+
+  Multiple people in a lab might have his/her own system, or an
+  individual's system may change over time (or from the top to the
+  bottom of a file!)
+
+  Create a separate file with meta-data: ``These are the files. In
+  this file, the variable is called {\nhilit blah} while in that file it's
+  {\nhilit blather}.''
+
+  The meta-data file should be structured as data (e.g., as a comma-
+  or tab-delimited file) for easy parsing.
+}
+\end{frame}
+
+
+
 \begin{frame}{Basic tools}
 
 
@@ -251,127 +325,486 @@ don't reply to emails.
 
 \bi
 \itemsep12pt
-\item Automation with Make
-\item Unix command line
-\item Latex and Markdown
-\item Knitr
-\item Version control with git
+\item File organization and naming
+\item RMarkdown
 \item R packages
-\item Python (or Ruby or Perl)
+\item Version control with git/GitHub
+\item Automation with Make
 \ei
 
-\note{These are the basic tools that I think are important for
-  reproducible computational research; they form the core topics for
-  the course.
+\note{These are the basic tools that we will cover in this workshop.
+  RMarkdown allow preparation of beautiful documents without pointing
+  or clicking, and combining code and text.
+
+  R's packaging system is among its best features.
+
+  Version control isn't strictly necessary for reproducibility, but
+  once you get the hang of it, you'll never go back.
 
   Make is for automation and for documenting dependencies. For
-  reproducibility, the command line is your best friend. Latex and
-  Markdown allow preparation of beautiful documents without pointing
-  or clicking. Knitr is for combining code and text; knitr and make
-  are the key tools for reproducibility. Version control isn't
-  strictly necessary for reproducibility, but once you get the hang of
-  it, you'll never go back. R's packaging system is among its best
-  features. A scripting language like Python is invaluable for
-  manipulating data files. Many things that are awkward in R are easy
-  in Python.
+  reproducibility, the command line is your best friend.
 }
 \end{frame}
 
 
-\begin{frame}{Other topics}
+
+
+\begin{frame}[c]{}
+
+\begin{center}
+\large
+\only<1|handout:0>{
+File organization and naming \\
+are powerful weapons against chaos.
+}
+\only<2>{
+Your closest collaborator is you six months ago, \\
+but you don't reply to emails.
+}
+\end{center}
+
+\hfill
+{\lolit
+\only<1|handout:0>{{\textendash} \href{http://www.stat.ubc.ca/~jenny/}{Jenny Bryan}}
+\only<2>{(paraphrasing \href{https://twitter.com/kcranstn/status/370914072511791104}{Mark Holder})}
+}
+
+\note{The first thing to do is to make your project
+  understandable to others (or yourself, later, when you try to figure
+  out what it was that you did.
+
+  Segregate all the materials for a project in one directory/folder on
+  your harddrive.
+
+  I prefer to separate raw data from processed data, and I put code in
+  a separate directory.
+
+  Write {\tt ReadMe} files to explain what's what.
+}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Organizing your stuff}
+
+\vspace{6pt}
+
+\begin{lstlisting}
+Code/d3examples/
+    /Others/
+    /PyBroman/
+    /Rbroman/
+    /Rqtl/
+    /Rqtlcharts/
+Docs/Talks/
+    /Meetings/
+    /Others/
+    /Papers/
+    /Resume/
+    /Reviews/
+    /Travel/
+Play/
+Projects/AlanAttie/
+        /BruceTempel/
+        /Hassold_QTL/
+        /Hassold_Age/
+        /Payseur_Gough/
+        /PhyloQTL/
+        /Tar/
+\end{lstlisting}
+
+\note{This is basically how I organize my hard drive. You want it to be
+  clear where things are. You shouldn't be searching for stuff.
+
+  In my {\tt Projects/} directory, I have a {\tt Tar/} directory with
+  {\tt tar.gz} files
+  of older projects; the same is true for other directories, like
+  {\tt Docs/Papers/} and {\tt Docs/Talks/}.
+}
+\end{frame}
+
+
+\begin{frame}[fragile]{Organizing your projects}
+
+\vspace{6pt}
+
+\begin{lstlisting}
+Projects/Hassold_QTL/
+
+    Data/
+    Notes/
+    R/
+    R/Figs/
+    R/Cache/
+    Rawdata/
+    Refs/
+
+    Makefile
+    Readme.txt
+
+    Python/convertGeno.py
+    Python/convertPheno.py
+    Python/combineData.py
+
+    R/prepData.R
+    R/analysis.R
+    R/diagnostics.Rmd
+    R/qtl_analysis.Rmd
+\end{lstlisting}
+
+\note{This is how I'd organize a simple project.
+
+  Separate the raw data from processed data.
+
+  Separate code from data.
+
+  Include a Readme file and a Makefile.
+
+  I tend to reuse file names. Almost every project will have an {\tt
+    R/prepData.R} script.
+
+  Of course, each project is under version control (with git)!
+
+  {\tt R/analysis.R} usually has exploratory analyses, and then
+  there'll be separate {\tt .Rmd} files with more finalized work.
+}
+\end{frame}
+
+
+\begin{frame}[fragile]{Organizing a paper}
+
+\vspace{6pt}
+
+\begin{lstlisting}
+Docs/Papers/PhyloQTL/
+
+    Analysis/
+    Data/
+    Figs/
+    Notes/
+    R/
+    SuppFigs/
+
+    ReadMe.txt
+    Makefile
+    phyloqtl.tex
+    phyloqtl.bib
+
+    Submitted/
+    Reviews/
+    Revised/
+    Final/
+    Proofs/
+\end{lstlisting}
+
+\note{This is how I organize the material for a paper.
+
+  {\tt R/} contains code for figures; {\tt Analysis/} contains other
+  analysis code; {\tt Data/} contains data; {\tt Figs/} contains the
+  figures; {\tt Notes/} contains notes or references.
+
+  Of course, a {\tt Makefile} for compiling the PDF, and perhaps a
+  {\tt ReadMe} file to explain where things are.
+
+  And I'll save the submitted version (and text files with bits
+  for web forms at submission), plus reviews, the revised version plus
+  response to reviews, and then the final submitted version and the
+  proofs.
+}
+\end{frame}
+
+
+\begin{frame}[fragile]{Organizing a talk}
+
+\vspace{6pt}
+
+\begin{lstlisting}
+Docs/Talks/SampleMixups/
+
+    Figs/
+    R/
+
+    ReadMe.txt
+    Makefile
+    bmi2013.tex
+
+    Old/
+\end{lstlisting}
+
+\note{This is how I organize the material for a talk: much like a
+  paper, but generally a bit simpler.
+
+  Again, {\tt R/} contains code for figures and {\tt Figs/} contains
+  the actual figures.
+
+  And again, a {\tt Makefile} for compiling the PDF, and perhaps a
+  {\tt ReadMe} file to explain where things are.
+
+  And I'll save all old versions in {\tt Old/}
+}
+\end{frame}
+
+
+
+
+\begin{frame}{Basic principles}
+
+\vspace{18pt}
+
+\bi
+\item Develop your own system
+\item Put everything in a common directory
+\item Be consistent
+\bi
+\item directory structure; names
+\ei
+\item Separate raw from processed data
+\item Separate code from data
+\item It should be obvious what code created what files, and what the
+  dependencies are.
+\item No hand-editing of data files
+\item Don't use spaces in file names
+\item Use relative paths, not absolute paths
+\bi
+\item[] {\tt \hilit ../blah} \; not \; {\tt \vhilit {\textasciitilde}/blah} \; or \; {\tt \vhilit /users/blah}
+\ei
+\ei
+
+\note{I work on many different projects at the same time, and I'll
+  come back to a project 6 months or a year later.
+
+  I don't want to spend much time figuring out where things are
+  and how things were created: have a {\tt Makefile}, and keep notes. But
+  notes are not necessarily correct while a {\tt Makefile} would be.
+
+  Plan for the whole deal to ultimately be open to others: will you be
+  proud of the work, or embarrassed by the mess?
+}
+\end{frame}
+
+
+
+
+\begin{frame}[c]{}
+
+\vspace{24pt}
+
+\figh{Figs/iso_8601.png}{0.8}
+
+\vfill
+
+\hfill {\tt \footnotesize \lolit \href{http://xkcd.com/1179/}{xkcd.com/1179}}
+
+\note{Go with the xkcd format for writing dates, for ease of sorting.
+}
+\end{frame}
+
+
+
+
+\begin{frame}{Painful bits}
 
 \vspace{24pt}
 
 \bi
-\itemsep12pt
-\item Organizing projects
-\item Writing clear code
-\item Don't Repeat Yourself (DRY)
-\item Testing and debugging
-\item Handling big jobs
-\item Licenses; human subjects data
+\item Coming up with good names for things
+\bi
+\item Concise but informative
+\item Code as verbs; data as nouns
+\item Avoid spaces; avoid symbols except - and \_
+\ei
+\item Stages of data cleaning
+\item Going back and redoing stuff
+\item Clutter of old stuff that you no longer need
+\item Keeping track of the order of things
+\bi
+\item dependencies; what gave rise to what
+\ei
 \ei
 
-\note{We'll also cover all of these things.
+\note{I don't have many solutions to these problems. Version control
+  helps. And try to break things down into different stages, in
+  case one aspect needs to be revised. Maybe use different
+  subdirectories for the different stages of data cleaning.
 
-The organization of the data and code for a project is a major
-determinant of whether others will be able to make sense of it.
-Good code is not just correct but is clearly written. Code is easier
-to maintain and understand if it is modular. Adding good tests will
-help you to find problems in your code earlier rather than later. But
-you'll spend a lot of time debugging, so we should talk about
-debugging strategies. Big computational jobs (particularly big
-computer simulations) raise additional issues; reproducibility is
-especially tricky. Finally, code that you distribute should be
-licensed. And if you're working with data on human subjects, you
-need to be extra careful.
+  A point that was raised in the discussion: Have periodic
+  ``versions'' for a project, perhaps labeled by date. Move all the
+  good stuff over and retire the stuff that is no longer useful or necessary.
 }
 \end{frame}
 
 
-\begin{frame}{Don't Repeat Yourself}
+\begin{frame}[fragile]{Problem: 80 million side projects}
 
 \vspace{24pt}
 
-\bi
-\itemsep12pt
-\item In code, in documentation, etc.
-\item Repeated bits of code are harder to maintain
-    \bi
-    \item[] Write a function
-    \ei
-\item Use documentation systems like Roxygen2
-    \bi
-    \item[] Documentation in just one place
-    \ei
-\item Make use of others' code
-\ei
+\begin{lstlisting}
+$ ls ~/Projects/Attie
 
-\note{DRY is among the more important concepts/techniques.
+AimeeNullSims/        Deuterium/             Ping/
+AimeeResults/         ExtractData4Gary/      Ping2/
+AnnotationFiles/      ForFirstPaper/         Ping3/
+Brian/                FromAimee/             Ping4/
+Chr10adipose/         GoldStandard/          Play/
+Chr6_extrageno/       HumanGWAS/             Proteomics/
+Chr6hotspot/          Insulin/               R/
+ChrisPlaisier/        Islet_2011-05/         RBM_PlasmaUrine/
+Code4Aimee/           Lusis/                 R_adipose/
+CompAnnot/            MappingProbes/         R_islet/
+CondScans/            Microarrays/           Rawdata/
+D2O_2012-02-14/       MultiProbes/           Scans/
+D2O_Nrm_2012-02-29/   NewMap/                SimsRePower/
+D2O_cellcycle/        Notes/                 Slco1a6/
+D2Ocorr/              NullSims/              StudyLineupMethods/
+Data4Aimee/           NullSims_2009-09-10/   eQTLPaper/
+Data4Tram/            PepIns_2012-02-09/     transeQTL4Lude/
+\end{lstlisting}
+\note{This is a project-gone-wrong.
 
-For example, I helped organize a meeting
-in Madison in 2013. The program book and website both drew
-information from a single basic source. Change that one document and
-both the program and web site are updated.
+  A key problem in research is that you don't really know what you're
+  doing when you get started. It seems best to separate out each
+  side-project as a separate directory, but it can be a nightmare to
+  find things later.
 
-My R/qtl package is an {\color{nhilit} anti}-example.
+  If each of these subdirectories was nicely organized and had a
+  {\tt ReadMe} file, you could {\tt grep} your way through them.
+
+  I sort of like the idea of separate directories for the different
+  aspects of mucking about. And second versions are always better. Maybe
+  we should plan to muck about separately and then bring a more
+  refined analysis back into a common directory?
+
+  A point raised in the discussion:   Put defunct side projects into
+  an {\tt Old/} subdirectory, and put active but not yet clearly
+  interesting ones into {\tt New/} or {\tt Play/}. This will help to
+  avoid the clutter.
 }
 \end{frame}
 
-\begin{frame}{This course}
 
-\vspace{24pt}
 
-\bi
-\itemsep18pt
-\item Brief intro to various tools and concepts
-\item Try everything out as we go along
-    \bi
-    \item[] Ask questions!
-    \ei
-\item I don't know everything
-    \bi
-    \item[] Make suggestions!
-    \ei
-\item Project
-    \bi
-    \item Write a bit of R code
-    \item Use version control
-    \item Make it an R package
-    \item Write a vignette
-    \ei
-\ei
+\begin{frame}[c]{Keep track of versions of things}
 
-\note{About this course: I'm trying to get you started; pointing you
-  in the right direction. But I don't know everything, and I don't
-  always do things in the most efficient way possible: please offer me
-  suggestions!
+\vspace*{3mm}
 
-  We won't have time for a comprehensive introduction to the tools.
-  My main goal is to convince you of their importance: to motivate you
-  to adopt them.
+\centering
+
+% comic from http://www.phdcomics.com/comics/archive.php?comicid=1531
+\only<1>{\figh{Figs/phd101212s.png}{0.8}}
+
+\hfill {\tt \footnotesize \lolit
+  \href{http://bit.ly/PhDComics_notFinal}{bit.ly/PhDComics\_notFinal}}
+
+\note{
+  Never include ``final'' in a file name.
 }
 \end{frame}
+
+
+\begin{frame}<handout:0>[fragile,c]{No ``{\hilit final}'' in file names}
+
+
+\addtocounter{framenumber}{-1}
+
+\begin{center}
+\begin{minipage}[c]{9.5cm}
+\begin{semiverbatim}
+\lstset{basicstyle=\tiny}
+\begin{lstlisting}[escapechar=!,linewidth=9.5cm]
+!{\color{foreground}{Deprecated/                            hypo_prcomp.RData}!
+!{\color{foreground}{ReadMe.txt                             islet_int1_final.RData}!
+!{\color{foreground}{adipose_int1_final.RData               islet_int2_final.RData}!
+!{\color{foreground}{adipose_int2_final.RData               islet_mlratio_final.RData}!
+!{\color{foreground}{adipose_mlratio_final.RData            islet_mlratio_nqrank_final.RData}!
+!{\color{foreground}{adipose_mlratio_nqrank_final.RData     islet_prcomp.RData}!
+!{\color{foreground}{adipose_prcomp.RData                   kidney_int1_final.RData}!
+!{\color{foreground}{aligned_geno_with_pmap.RData           kidney_int2_final.RData}!
+!{\color{foreground}{batches_final.RData                    kidney_mlratio_final.RData}!
+!{\color{foreground}{batches_raw_final.RData                kidney_mlratio_nqrank_final.RData}!
+!{\color{foreground}{cpl_final.RData                        kidney_prcomp.RData}!
+!{\color{foreground}{d2o_final.RData                        lipomics_final_rev2.RData}!
+!{\color{foreground}{gastroc_int1_final.RData               liverTG_final.RData}!
+!{\color{foreground}{gastroc_int2_final.RData               liver_int1_final.RData}!
+!{\color{foreground}{gastroc_mlratio_final.RData            liver_int2_final.RData}!
+!{\color{foreground}{gastroc_mlratio_nqrank_final.RData     liver_mlratio_final.RData}!
+!{\color{foreground}{gastroc_prcomp.RData                   liver_mlratio_nqrank_final.RData}!
+!{\color{foreground}{hypo_int1_final.RData                  liver_prcomp.RData}!
+!{\color{foreground}{hypo_int2_final.RData                  mirna_final.RData}!
+!{\color{foreground}{hypo_mlratio_final.RData               necropsy_final_rev2.RData}!
+!{\color{foreground}{hypo_mlratio_final_old.RData           plasmaurine_final_rev.RData}!
+!{\color{foreground}{hypo_mlratio_nqrank_final.RData        pmark.RData}!
+!{\color{foreground}{hypo_mlratio_nqrank_final_old.RData    rbm_final.RData}!
+!{\color{foreground}{hypo_omit.RData}!
+\end{lstlisting}
+\end{semiverbatim}
+\end{minipage}
+\end{center}
+
+
+\end{frame}
+
+
+\begin{frame}<handout:0>[fragile,c]{No ``{\hilit final}'' in file names}
+
+
+\addtocounter{framenumber}{-1}
+
+\begin{center}
+\begin{minipage}[c]{9.5cm}
+\begin{semiverbatim}
+\lstset{basicstyle=\tiny}
+\begin{lstlisting}[escapechar=!,linewidth=9.5cm]
+!{\color{foreground}{Deprecated/                            hypo_prcomp.RData}!
+!{\color{foreground}{ReadMe.txt                             islet_int1_final.RData}!
+!{\color{foreground}{adipose_int1_final.RData               islet_int2_final.RData}!
+!{\color{foreground}{adipose_int2_final.RData               islet_mlratio_final.RData}!
+!{\color{foreground}{adipose_mlratio_final.RData            islet_mlratio_nqrank_final.RData}!
+!{\color{foreground}{adipose_mlratio_nqrank_final.RData     islet_prcomp.RData}!
+!{\color{foreground}{adipose_prcomp.RData                   kidney_int1_final.RData}!
+!{\color{foreground}{aligned_geno_with_pmap.RData           kidney_int2_final.RData}!
+!{\color{foreground}{batches_final.RData                    kidney_mlratio_final.RData}!
+!{\color{foreground}{batches_raw_final.RData                kidney_mlratio_nqrank_final.RData}!
+!{\color{foreground}{cpl_final.RData                        kidney_prcomp.RData}!
+!{\color{foreground}{d2o_final.RData                       }!!{\color{vhilit} lipomics_final_rev2.RData}!
+!{\color{foreground}{gastroc_int1_final.RData               liverTG_final.RData}!
+!{\color{foreground}{gastroc_int2_final.RData               liver_int1_final.RData}!
+!{\color{foreground}{gastroc_mlratio_final.RData            liver_int2_final.RData}!
+!{\color{foreground}{gastroc_mlratio_nqrank_final.RData     liver_mlratio_final.RData}!
+!{\color{foreground}{gastroc_prcomp.RData                   liver_mlratio_nqrank_final.RData}!
+!{\color{foreground}{hypo_int1_final.RData                  liver_prcomp.RData}!
+!{\color{foreground}{hypo_int2_final.RData                  mirna_final.RData}!
+!{\color{foreground}{hypo_mlratio_final.RData              }!!{\color{vhilit} necropsy_final_rev2.RData}!
+!{\color{vhilit}{hypo_mlratio_final_old.RData           plasmaurine_final_rev.RData}!
+!{\color{foreground}{hypo_mlratio_nqrank_final.RData        pmark.RData}!
+!{\color{vhilit}{hypo_mlratio_nqrank_final_old.RData   }!!{\color{foreground} rbm_final.RData}!
+!{\color{foreground}{hypo_omit.RData}!
+\end{lstlisting}
+\end{semiverbatim}
+\end{minipage}
+\end{center}
+
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}{And don't forget...}
+
+\vspace{64pt}
+
+\centerline{\Large Backups}
+
+\note{You {\nhilit must} back up your stuff.
+
+      On a Mac, I use the built-in Time Machine, but I also use
+      SuperDuper! to create a bootable clone.
+}
+\end{frame}
+
+
 
 
 \begin{frame}[c]{}
@@ -389,146 +822,6 @@ will be reproducible.
 }
 
 \note{So true. Desire for reproducibility is step one.
-}
-\end{frame}
-
-
-
-\begin{frame}{Automation with GNU Make}
-
-\vspace{24pt}
-
-\bi
-\itemsep12pt
-\item {\tt Make} is for more than just compiling software
-\item The {\color{hilit} essence} of what we're trying to do
-\item Automates a workflow
-\item Documents the workflow
-\item Documents the dependencies among data files, code
-\item Re-runs only the necessary code, based on what has changed
-\ei
-
-
-\note{People usually think of Make as a tool for automating the
-  compilation of software, but it can be used much more generally.
-
-  To me, Make is the essential tool for reproducible research:
-  automation plus the documentation of dependencies and workflows.
-}
-\end{frame}
-
-
-\begin{frame}[fragile]{Example {\tt Makefile}}
-
-\begin{semiverbatim}
-\begin{lstlisting}
-# Example Makefile for a paper
-mypaper.pdf: mypaper.bib mypaper.tex Figs/fig1.pdf Figs/fig2.pdf
-    pdflatex mypaper
-    bibtex mypaper
-    pdflatex mypaper
-    pdflatex mypaper
-
-# cd R has to be on the same line as R CMD BATCH
-Figs/fig1.pdf: R/fig1.R
-    cd R;R CMD BATCH fig1.R fig1.Rout
-
-Figs/fig2.pdf: R/fig2.R
-    cd R;R CMD BATCH fig2.R fig2.Rout
-\end{lstlisting}
-\end{semiverbatim}
-
-\note{You can get really fancy with make, but this example shows you
-  the basics.
-
-  Records look like {\tt target: dependencies} and are followed by a
-  set of lines of code for creating the target from the
-  dependencies. Those lines of code must start with a tab character
-  ({\color{nvhilit} not} spaces), and if you need to change
-  directories, you have to do that on the same line as the command.
-
-  If you type {\tt make} (or {\tt make Makefile}), the {\tt
-  mypaper.pdf} file will be created; but first, any dependencies
-  will be updated, if necessary, based on the time the files were last
-  modified.
-
-  So, for example, if {\tt fig1.R} had been edited, then the commands
-  to construct {\tt fig1.pdf} would be constructed, followed by the
-  commands to construct {\tt mypaper.pdf}.
-}
-\end{frame}
-
-
-
-\begin{frame}[fragile]{Fancier example}
-
-\begin{semiverbatim}
-\begin{lstlisting}
-FIG_DIR = Figs
-
-mypaper.pdf: mypaper.tex ${FIG_DIR}/fig1.pdf ${FIG_DIR}/fig2.pdf
-    pdflatex mypaper
-
-# One line for both figures
-${FIG_DIR}/%.pdf: R/%.R
-    cd R;R CMD BATCH $(<F)
-
-# Use "make clean" to remove the PDFs
-clean:
-    rm *.pdf Figs/*.pdf
-\end{lstlisting}
-\end{semiverbatim}
-
-\note{As I said, you can get really fancy with GNU Make.
-
-  Use variables for directory names or compiler flags. (This example
-  is not a good one.)
-
-  Use pattern rules and automatic variables to avoid repeating
-  yourself. With {\tt \%}, we have one line covering both
-  {\tt fig1.pdf} and {\tt fig2.pdf}. The {\tt \$(<F)}
-  is the file part of
-  the first dependency.
-
-  Look at the manual for make and the many online tutorials, such as
-  the one from Software Carpentry.
-}
-\end{frame}
-
-
-
-\begin{frame}[fragile]{How do you use make?}
-
-\vspace{6pt}
-
-{\small
-\bi
-\item If you name your make file {\tt Makefile}, then just go into the
-directory containing that file and type {\tt \color{hilit} make}
-
-\item If you name your make file {\tt something.else}, then type \\
-{\tt \color{hilit} make -f something.else}
-
-\item Actually, the commands above will build the {\color{vhilit} first}
-  target listed in the make file. So I'll often include something like
-  the following.
-
-\begin{quote}
-{\tt \color{hilit} all: target1 target2 target3}
-\end{quote}
-
-  Then typing {\tt \color{hilit} make all} (or just {\tt
-    \color{hilit} make}, if {\tt \color{hilit} all} is listed
-  first in the file) will build all of those
-  things.
-
-\item To be build a specific target, type {\tt \color{hilit} make target}.
-  For example, {\tt \color{hilit} make Figs/fig1.pdf}
-\ei
-}
-
-\note{I can't believe that I forgot to explain this the first time
-  I gave this lecture.
 }
 \end{frame}
 
