@@ -39,6 +39,18 @@ You can type code directly into the R console. But mostly I'll have a
 script and copy-paste from it (using the RStudio keyboard shortcuts).
 Or really I should be using RMarkdown.
 
+With RStudio, the best way to encapsulate a project in its own
+directory is to create an "R Project". This creates a `.Rproj` file in
+the directory. When you open that file in RStudio, it will make that
+directory your working directory, and you can save various
+project-specific options.
+
+Create an R project for this workshop by going to File → New Project.
+Then select "New Directory", and finally "Empty Project". Give a
+directory name and choose where it should be placed.
+
+
+
 ## RMarkdown
 
 As an applied statistician working with a lot of different scientific
