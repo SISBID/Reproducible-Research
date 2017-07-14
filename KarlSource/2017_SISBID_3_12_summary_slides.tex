@@ -1,0 +1,120 @@
+\documentclass[12pt,t]{beamer}
+\usepackage{graphicx}
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}[plain]
+\usepackage{listings}
+
+\input{LaTeX/header.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end of header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% title info
+\title{12: Summary + Extras}
+\author{}
+\date{\href{https://bit.ly/SISBID3}{\tt \color{foreground} bit.ly/SISBID3}}
+
+\begin{document}
+
+% title slide
+{
+\setbeamertemplate{footline}{} % no page number here
+\frame{
+  \titlepage
+  \note{We'll briefly summarize all that we discussed, and further
+    touch on how to share your research data and code. Then we'll give
+    pointers to the many things that we didn't have time to talk about.
+} }
+
+
+\begin{frame}[c]{}
+
+\begin{center}
+\large
+The most important tool is the {\hilit mindset},\\
+when starting, that the end product \\
+will be reproducible.
+\end{center}
+
+\hfill
+{\lolit
+{\textendash} \href{http://odin.mdacc.tmc.edu/~kabaggerly/}{Keith Baggerly}
+}
+
+\note{So true. Desire for reproducibility is step one.
+}
+\end{frame}
+
+
+
+
+\begin{frame}[c]{Steps toward reproducible research}
+
+
+  \bi
+\item Slow down
+\item Organize; document
+\item Everything with code
+\item Scripts → RMarkdown
+\item Code → functions → packages
+\item Version control with Git
+\item Automation with Make
+\item Choose a license
+\item Share your work with others
+  \ei
+
+
+\note{Moving from ``standard practice'' to ``fully reproducible'' is
+  hard. There are a lot of tools to learn and a lot of workflow
+  changes to make. Don't try to change everything all at once. Focus
+  on improving one aspect at a time, ideally jointly with your friends
+  and colleagues. Your goal should be to have each project be a bit
+  better organized than the previous.
+}
+\end{frame}
+
+
+
+\begin{frame}[c]{Challenges}
+
+
+  \bi
+\item Daily maintenance
+  \bi
+\item READMEs up to date?
+\item Documentation match code?
+  \ei
+\item Cleaning up the junk
+  \bi
+\item Move defunct stuff into an {\tt Old/} subdirectory?
+  \ei
+\item Start over from the beginning, nicely?
+  \ei
+
+
+\note{The organization of a project is dependent on your worst day
+  with it. You keep everything carefully arranged for months and then
+  one day you need to rush, rush, rush to get a manuscript out the
+  door, and you leave a big mess.
+
+  And a common problem is that you don't really know what you're doing
+  until it's all done. So if you can, spend a week at the end making a
+  separate, clean version of the whole thing.
+}
+\end{frame}
+
+
+
+\begin{frame}[c]{Unmentioned}
+
+  \bi
+\item Code review / paired programming
+\item Software testing (and debugging)
+\item Capturing versions of dependent software (e.g.
+  \href{https://rstudio.github.io/packrat}{packrat})
+  \ei
+
+\end{frame}
+
+\end{document}

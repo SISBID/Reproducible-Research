@@ -1,10 +1,12 @@
 all: lectures printable Figs/rmd_compilation_fig.png
 
 lectures: ../2017_SISBID_3_01_introduction_slides.pdf \
-		  ../2017_SISBID_3_05_bigjobs_slides.pdf
+		  ../2017_SISBID_3_05_bigjobs_slides.pdf \
+		  ../2017_SISBID_3_12_summary_slides.pdf
 
 printable: ../2017_SISBID_3_01_introduction_printable.pdf \
-		   ../2017_SISBID_3_05_bigjobs_printable.pdf
+		   ../2017_SISBID_3_05_bigjobs_printable.pdf \
+		   ../2017_SISBID_3_12_summary_printable.pdf
 
 ../%.pdf: %.pdf
 	cp $< ../
