@@ -106,14 +106,175 @@ will be reproducible.
 
 
 
-\begin{frame}[c]{Unmentioned}
+\begin{frame}[c]{Sharing your work}
 
   \bi
-\item Code review / paired programming
+\item Why share?
+  \bi
+\item Funding agency or journal requirement
+\item Increased visibility
+\item So that others can build on your work
+  \ei
+\item When?
+  \bi
+\item Continuously and instantaneously
+\item When you submit a paper
+\item When your paper appears
+  \ei
+\item Risks?
+  \ei
+
+  \note{
+    There a lot of advantages to making your work public, and you may
+    be required to make it public.
+
+    Some scientists put all of the work in the open as they're doing
+    it. Others wait until they submit a manuscript; others until the
+    manuscript actually appears. Still others want to delay releasing
+    data yet further. The earlier the better, I think.
+
+    Are there risks? Many worry about being scooped: having someone
+    find something cool in your data before you got a chance to find
+    it yourself. I think the risk of this is far outweighed by the
+    advantages of having data and code in the open. You may also worry
+    about people finding problems in your analyses. But if there are
+    problems, wouldn't you rather know about them? You can't build
+    upon it if it's not right.
+
+    The biggest risk is that you'll be ignored. Sharing more,
+    sooner, and in a more convenient form will encourage broader
+    visibility.
+  }
+
+
+\end{frame}
+
+
+\begin{frame}[c]{What to share?}
+
+  \bi
+\item For sure
+  \bi
+\item Primary dataset
+\item Metadata
+\item Data cleaning scripts
+\item Analysis scripts
+  \ei
+\item It could help
+  \bi
+\item Very-raw data
+\item Processed/clean data
+\item Intermediate results
+  \ei
+\item No
+  \bi
+\item Confidential data (e.g. HIPAA data)
+\item Passwords, private keys
+  \ei
+  \ei
+
+  \note{It can be tricky to define what is the ``primary dataset''.
+    How raw of data should you share? Where would someone want to
+    start, and how can you make it easiest for them to dig into your
+    analyses or make use of the data for other purposes, such as for a
+    meta-analysis study? In some cases, it can be valuable to share
+    many of the intermediate results, so that folks can jump into the
+    bit that they care about without having to first run a bunch of
+    complex and time-consuming analyses to get there.
+
+    You definitely want to make sure that you're not including any
+    confidential information, particularly regarding patient-level
+    data, but also private keys for data APIs which you might be
+    including in your scripts.
+}
+\end{frame}
+
+
+
+\begin{frame}[c]{Where to share?}
+
+  \bi
+\item Domain-specific repository
+  \bi
+  \item Genbank, dbGaP, etc.
+  \item See \href{http://re3data.org}{\tt re3data.org}
+  \ei
+\item \href{https://figshare.com}{Figshare}, \href{https://datadryad.org}{Dryad}, \href{https://zenodo.org}{Zenodo}
+\item Institutional repository
+  \item \href{https://github.com}{GitHub}, \href{https://bitbucket.org}{BitBucket}
+  \ei
+
+  \note{Share code at GitHub or BitBucket. But how about data?
+    Consider domain-specific repositories like dbGaP, then general
+    data repositories like Zenodo, and then look to see whether your
+    institution has a data repository.
+
+    Another option is as supplemental material for a publication, at
+    the Journal's website, but this is often the most cumbersome for
+    users.}
+\end{frame}
+
+
+\begin{frame}[c]{Resources}
+
+  \bi
+\item R Markdown
+  \bi
+    \item \href{https://rmarkdown.rstudio.com}{\tt rmarkdown.rstudio.com}
+  \ei
+\item R Packages
+  \bi
+    \item Releasing to CRAN:
+      \href{http://r-pkgs.had.co.nz/release.html}{\tt \footnotesize r-pkgs.had.co.nz/release.html}
+    \item Leek group: \href{https://github.com/jtleek/rpackages}{\tt
+      \footnotesize github.com/jtleek/rpackages}
+    \item When to trust an R package:
+      \href{https://simplystatistics.org/2015/11/06/how-i-decide-when-to-trust-an-r-package/}{\tt
+        \footnotesize bit.ly/trust\_r\_pkg}
+  \ei
+\item Make
+  \bi
+    \item \href{http://kbroman.org/minimal_make}{\tt kbroman.org/minimal\_make}
+  \ei
+\item Git
+  \bi
+    \item Git branches:
+      \href{https://nicercode.github.io/git/branches.html}{\tt
+        \footnotesize nicercode.github.io/git/branches.html}
+    \item Hadley on Git/GitHub:
+      \href{http://r-pkgs.had.co.nz/git.html}{\tt \footnotesize r-pkgs.had.co.nz/git.html}
+    \item Git subtrees:
+      \href{https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/}{\tt
+        \footnotesize bit.ly/git\_subtree}
+  \ei
+  \ei
+
+  \note{ Links to some resources related to the course material. }
+\end{frame}
+
+
+\begin{frame}[c]{Some of the things we didn't cover}
+
+  \bi
+\item Command-line, including `R CMD BATCH`
 \item Software testing (and debugging)
+\item Code review / paired programming
 \item Capturing versions of dependent software (e.g.
   \href{https://rstudio.github.io/packrat}{packrat})
+\item Containers (e.g. \href{https://www.docker.com}{\tt \footnotesize docker.com})
+\item Coding conventions, e.g.
+  Hadley's \href{http://adv-r.had.co.nz/Style.html}{\tt \footnotesize
+    adv-r.had.co.nz/Style.html} and
+  Google's
+  \href{https://google.github.io/styleguide/Rguide.xml}{\tt
+      \footnotesize google.github.io/styleguide/Rguide.xml}
+\item Report templates,
+  \href{http://rmarkdown.rstudio.com/developer_document_templates.html}{\tt
+    \footnotesize rmarkdown.rstudio.com/developer\_document\_templates.html}
+
   \ei
+
+\note{ There's a lot that we didn't cover.}
 
 \end{frame}
 
