@@ -43,7 +43,7 @@ a bunch of attached figures. I moved to writing formal reports, in
 Word or LaTeX. But there was a lot of copy-paste of figures, and
 messing about to get page breaks just right.
 
-I know write all such reports using RMarkdown, with the output being a
+I now write all such reports using RMarkdown, with the output being a
 single HTML file, which can be opened in any web browser.
 I'll show a couple of examples. The advantages are:
 
