@@ -32,6 +32,11 @@ When you open RStudio, you'll see four "panes":
 You can reorganize the layout of the panes by going to Tools → Global
 Options → Pane Layout.
 
+To get a list of RStudio keyboard shortcuts, go to Help → Keyboard
+Shortcuts Help.
+
+You can type code directly into the R console
+
 
 ## RMarkdown
 
@@ -73,3 +78,177 @@ provide useful reminders of some of the options.
 
 Immediately save the document, giving the file a name and ensuring
 that it's saved in the correct place.
+
+### Things to notice
+
+- The [YAML](http://yaml.org) header at the top, defining the title,
+  author, and date. Additional options can be included here.
+
+- The document is a mixture of text (in Markdown) and chunks of code
+  (in R)
+
+- Markdown features such as for `<URLs>`, `**bold**`, `## Sections`,
+  and `in-line code`. And three "backticks" for multi-line chunks of
+  code.
+
+- The chunks of code starting with a line like
+
+      ```{r pressure, echo=FALSE}
+
+  are the key code chunks that get executed when the document is
+  compiled. Each chunk can have a name (here, "`pressure`"), which is
+  optional but strongly recommended. For code that produces a graph,
+  the graph will be inserted into the document that's produced.
+
+- Click the "Knit" button (with the cutest-icon-ever ball of yarn) to
+  compile the document.
+
+
+
+
+### A worked example
+
+I'll do some live coding to create a more extended example of an
+RMarkdown document.
+
+I'm going to use these packages:
+
+- [babynames](https://github.com/hadley/babynames)
+- [dplyr](https://github.com/hadley/dplyr)
+- [ggplot2](https://github.com/hadley/ggplot2)
+- [DT](https://github.com/rstudio/DT)
+- [plotly](https://plot.ly/r)
+
+Key things to illustrate:
+
+- Some Markdown features
+- Code chunks that do some work
+- Code chunks that make plots
+- In-line code
+- Making an interactive data table
+- Making an interactive plot
+
+
+### Chunk options
+
+There are a bunch of different
+[chunk options](https://yihui.name/knitr/options#chunk_options),
+to control the code chunks.  Here are some common ones.
+
+- `echo=FALSE`
+- `results="hide"`
+- `include=FALSE`
+- `eval=FALSE`
+- `warning=FALSE`
+- `message=FALSE`
+- `fig.width=[#]`
+- `fig.height=[#]`
+
+That first chunk of code in the default RMarkdown document shows how
+to set _global_ chunk options. It's the most obscure part of
+RMarkdown and the package [knitr](https://yihui.name/kniitr), which is
+probably why it's included in the default document.
+
+You can override any global chunk options in specific chunks.
+
+
+### In-line code
+
+In-line code (with single-back ticks and an `r`) need to be within one
+line; they can't span across lines.
+
+I'll often precede a paragraph with a code chunk with `include=FALSE`,
+defining various variables, to simplify the in-line code.
+
+Never hard-code a result or summary statistic again! Everything
+straight from the data.
+
+The YAML header can include in-line code or Markdown fanciness, for
+example:
+
+    ---
+    title: "knitr/R Markdown example"
+    author: "[Karl Broman](http://kbroman.org)"
+    date: "`r Sys.Date()`"
+    output: html_document
+    ---
+
+### Reproducible knitr documents
+
+- Don't use absolute paths
+
+- If you _must_ use absolute paths, define the various directories
+  with variables at the top of your document
+
+- For simulations, use `set.seed` in your first chunk.
+
+- Include a final code chunk with `getwd()` and
+  either `sessionInfo()` or `devtools::session_info()`.
+
+
+### Controlling figures
+
+- The default is for RMarkdown to use the `png()` graphics device.
+
+- Specify another graphics device with the chunk option `dev`
+
+- Pass arguments to the graphics device with the chunk option
+  `dev.args`. For example:
+
+      ```{r figure, dev.args=list(pointsize=18)}
+
+- In addition to `fig.height` and `fig.width`, consider `out.height`
+  and `out.width`.  The `out.` ones are for the graphics device; the
+  `fig.` ones are for the size in the document produced.
+
+
+### Tables
+
+Tables are a constant pain. I'll often just print a data frame as a
+crude table.
+
+Other options:
+
+- `kable()` in the [knitr](https://yihui.name/knitr) package.
+- `pandoc.table()` in the [pander](http://rapporter.github.io/pander) package
+- `xtable()` in the [xtable](https://cran.r-project.org/package=xtable) package.
+- `DT()` in the [DT](https://github.com/rstudio/DT) package.
+
+
+### Additional document options
+
+There are several
+[html document options](http://rmarkdown.rstudio.com/html_document_format.html)
+that I like, to be inserted into the YAML header:
+
+    ---
+    title: "Doc options"
+    output:
+        html_document:
+            toc: true
+            toc_float: true
+            code_folding: hide
+    ---
+
+### Other languages
+
+You can execute code in many languages besides R, including
+python, SQL, bash, and javascript.
+
+A key issue is that variables are not remembered between these chunks
+and can't be passed between R chunks and back except by writing to and
+reading from files.
+
+    ```{python python_chunk}
+    x = 5**3
+    print(x)
+    y = 'hello, python world'
+    print(y.split(' '))
+    ```
+
+
+### Resources
+
+- Karl's [Knitr in a Knutshell](http://kbroman.org/knitr_knutshell) tutorial
+- [Dynamic Documents with R and knitr (book)](https://www.amazon.com/gp/product/1498716962?ie=UTF8&tag=7210-20)
+- [R Markdown](http://rmarkdown.rstudio.com) documentation
