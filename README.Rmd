@@ -1,153 +1,170 @@
 ---
-title: 'SISBID 2016 Module 3: Reproducible Research'
-author: "Keith Baggerly"
-date: "July 18-20, 2016"
-output: html_document
+title: 'SISBID 2017 Module 3: Reproducible Research'
+author: "Keith Baggerly and Karl Broman"
+date: "July 17-19, 2017"
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
 ---
 
 This module is part of the 
-[Summer Institute in Statistics for Big Data](https://www.biostat.washington.edu/suminst/sisbid)
+[Summer Institute in Statistics for Big Data](https://www.biostat.washington.edu/suminst/sisbid)!
 
 Taught by  
+
 Keith A. Baggerly  
 [kabagger@mdanderson.org](mailto:kabagger@mdanderson.org)  
+
 and  
-Roger Peng  
-[rdpeng@jhu.edu](mailto:rdpeng@jhu.edu)
+
+Karl Broman  
+[kbroman@biostat.wisc.edu](mailto:kbroman@biostat.wisc.edu)
 
 # Course Goals
 
 * Course Goals   
-[pdf (100K)](2016_SISBID_3_01_course_goals.pdf),
-[html (630K)](2016_SISBID_3_01_course_goals.html),
-[MS Word (12K)](2016_SISBID_3_01_course_goals.docx), 
-[Rmd Source (5K)](2016_SISBID_3_01_course_goals.Rmd)  
+[pdf](RRcourse_goals.pdf),
+[html](RRcourse_goals.html),
+[MS Word](RRcourse_goals.docx), 
+[Rmd Source](RRcourse_goals.Rmd)  
 
-# Homeworks
+# Homework
 
-* Homework   
-[pdf (100K)](2016_SISBID_3_02_homework.pdf),
-[html (630K)](2016_SISBID_3_02_homework.html), 
-[Rmd Source (3K)](2016_SISBID_3_02_homework.Rmd)  
-* Supplementary Data for Homework   
-[.RData (75M)](http://odin.mdacc.tmc.edu/~kabaggerly/SISBID/homework.RData) 
-* About the Homework Data   
-[pdf (160K)](2016_SISBID_3_03_about_the_homework_data.pdf), 
-[html (650K)](2016_SISBID_3_03_about_the_homework_data.html),
-[Rmd Source (12K)](2016_SISBID_3_03_about_the_homework_data.Rmd)
+* Homework  
+[pdf](homework.pdf),
+[html](homework.html),
+[MS Word](homework.docx),
+[Rmd Source](homework.Rmd)
 
-# Cheat Sheets (idea stolen from [Karl Broman](https://kbroman.wordpress.com/2015/04/29/cheat-sheets-for-r-based-software-carpentry-course/))
+# Cheat Sheets 
+
+Karl's [Software Carpentry Course](https://kbroman.wordpress.com/2015/04/29/cheat-sheets-for-r-based-software-carpentry-course/)
 
 These are from RStudio's [list](https://www.rstudio.com/resources/cheatsheets/)
 
 * [Rmarkdown](http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf); there's also a [reference guide](http://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf)
 * [Package Development/Devtools](http://www.rstudio.com/wp-content/uploads/2015/06/devtools-cheatsheet.pdf)
 
-This is from GitHub
+There are many other sheets there (including some for user contributions and translations), so check it out!
 
-* [Git/GitHub](https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf)
+These are from GitHub
 
+* [Git/GitHub](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf)
+* [Git](https://education.github.com/git-cheat-sheet-education.pdf)
+* [Links to Translations](https://services.github.com/resources/cheatsheets/)
+* [More Resources](https://help.github.com/articles/git-and-github-learning-resources/)
 
 # Course Syllabus and Lecture Materials
 
-## Day 1, Jul 18, 2016
+## Day 1, Jul 17, 2017
 
 ### Session 1, 8:30-10
 
-* 10 minute intro 
-[pdf (260K)](2016_SISBID_3_06_basic_intro.pdf)
-[printable pdf (260K)](2016_SISBID_3_06_basic_intro_printable.pdf)
-* General Intro to RR (75 min) 
-[printable pdf (3.4M)](2016_SISBID_3_07_broad_intro_to_rr_printable.pdf)
+**Lecture 0, Basic Intro, Keith, 5-10 min** 
+[pdf](2017_03_00_SISBID_basic_intro.pdf), 
+[printable pdf](2017_03_00_SISBID_basic_intro_printable.pdf)  
+Introduction to the course, administration, course goals  
+Definitions - reproduction vs replication  
 
-* [Getting crushed on the Internet](http://simplystatistics.org/2015/11/16/so-you-are-getting-crushed-on-the-internet-the-new-normal-for-academics/)
+**Lecture 1, Intro and Common Problems, Karl, 40 min**
+[pdf](2017_03_01_SISBID_introduction_slides.pdf),
+[printable pdf](2017_03_01_SISBID_introduction_printable.pdf)  
+An introduction to reproducible research by way of 
+commonly encountered problems
 
-* [Making your work reproducible](http://simplystatistics.org/2015/12/11/instead-of-research-on-reproducibility-just-do-reproducible-research/)
+**Lecture 2, A Train Wreck, Keith, 40 min**
+[pdf](2017_03_02_SISBID_train_wreck.pdf),
+[printable pdf](2017_03_02_SISBID_train_wreck_printable.pdf)  
+A case study describing just how bad things can get, with clinical implications
 
 ### Session 2, 10:30-12
 
-* The Duke Saga (45 min) 
-[pdf (3.6M)](2016_SISBID_3_08_train_wreck.pdf)
-[printable pdf (3.6M)](2016_SISBID_3_08_train_wreck_printable.pdf)
-* Using R markdown (30 min) 
-[pdf (800K)](2016_SISBID_3_09_markdown_printable.pdf)
-* Begin Day 1 Homework (draft Rmd file, generate html, pdf)
+**Lecture 3, R Markdown and Literate Programming, Karl, 45 min** 
+[Rmd example](2017_03_03_SISBID_example.Rmd) 
+[md source](2017_03_03_SISBID_Rmarkdown.md)  
+An introduction to R markdown, RStudio, and Literate Programming, with examples illustrating how to produce reproducible reports
+
+**Homework part 1, participants, 45 min**  
+Set up the analysis folder, write the preprocessing script in R markdown, compile to html / pdf / word
 
 ### Session 3, 1:30-3
 
-* Assembling R Packages (1hr) 
-[pdf (163K)](2016_SISBID_3_10_r_packages.pdf) 
-[printable pdf (162K)](2016_SISBID_3_10_r_packages_printable.pdf)
-* RStudio R package [pre-flight check list](https://github.com/rdpeng/daprocedures/blob/master/lists/Rpackage_preflight.md)
-* More Day 1 Homework (build a toy package)
+**Lecture 4, R Packages, Keith, 45-60 min (much live demo)**  
+How to write R packages quickly and easily with devtools, roxygen2, rmarkdown, and knitr - overhead, code, data, vignettes, clean code, and templates 
 
-This session will be a mix of lecture and live demo.
+**Homework part 2, participants, 30 min**  
+writing a basic package
 
 ### Session 4, 3:30-5
 
-* Exciting Big Data/Hwk Data Intro (15 min) 
-[pdf (4M)](2016_SISBID_3_11_intro_to_hwk_data.pdf) 
-[printable pdf (4M)](2016_SISBID_3_11_intro_to_hwk_data_printable.pdf)
-* More Day 1 Homework (explore TCGA, Tumor Portal, package)
+**Lecture 5, Big Jobs, Karl, 75 min (includes some workalong activities)** 
+[pdf](2017_SISBID_03_05_bigjobs_slides.pdf),
+[printable pdf](2017_SISBID_03_05_bigjobs_printable.pdf),
+[activity 1 spin code](2017_SISBID_03_05_bigjobs_activity1_spin.R),
+[activity 2 caching Rmd](2017_SISBID_03_05_bigjobs_activity2_cache.Rmd)  
+A discussion of challenges arising when data or jobs are big enough to make rerunning unpleasant or infeasible
 
-This session will be a mix of lecture and live demo.
+**Lecture 5, Vitamin D, Keith, 10-15 min**  
+Discussion of how recommendations are set, and reconstruction of analyses obscured by lack of code and misapplied terminology. Linked to course homeworks.
 
-* Day 1 Feedback (5 min)
-
-## Day 2, Jul 19, 2016
+## Day 2, Jul 18, 2017
 
 ### Session 5, 8:30-10
 
-* Discussion of Readings (15 min)
-* Problems with RR (45 min) 
-[pdf (2.5M)](2016_SISBID_3_12_problems_w_replication.pdf) 
-[printable pdf (2.5M)](2016_SISBID_3_12_problems_w_replication_printable.pdf)
-* Git/GitHub, Part 1 (30 min) 
-[pdf (4.7M)](2016_SISBID_3_13_git_part_1.pdf)
-[printable pdf (4.7M)](2016_SISBID_3_13_git_part_1_printable.pdf)
+**Lecture 6, Problems with Replication, Keith, 40 min**  
+A review of several factors which can make results harder to replicate (be seen again with new samples) vs hard to reproduce (starting from the same raw data)
 
-This session will be a mix of lecture and live demo.
+**Lecture 7, Git on your Computer, Keith, 50 min, mostly live**  
+Using git to track files and versions; init, status, add, commit, branch, checkout, merge
 
 ### Session 6, 10:30-12
 
-* Git/GitHub, Part 2 (45 min, continued)
-[pdf (1.7M)](2016_SISBID_3_14_git_part_2.pdf) 
-[printable pdf (1.7M)](2016_SISBID_3_14_git_part_2_printable.pdf)
-* Begin Day 2 Homework (put a toy package on github, share)
+**Lecture 8, Git with GitHub, Keith, 45 min**  
+Introducing GitHub, perhaps the "killer app" for git; working with remote repositories, bare repos, cloning, pull, push  
+
+**Homework, participants, 45 min**  
+Establishing a repo at GitHub  
+Post your package to GitHub  
 
 This session will be a mixture of lecture and live demo.
 
 ### Session 7, 1:30-3
 
-* Prevention vs Cure (45 min)
-[printable pdf (1.7M)](2016_SISBID_3_15_prevention_printable.pdf)
+**Lecture 9, Collaborating with Git, Keith, 45 min**  
+Working with others, making comments, providing feedback, fixing errors  
 
-* [ROC Curves of Science](http://simplystatistics.org/2013/08/01/the-roc-curves-of-science/)
-
-* More Day 2 Homework (responding to changes suggested)
+**Homework, participants, 45 min**  
+Working with your neighbor's repos
 
 ### Session 8, 3:30-5
 
-* More Day 2 Homework (sharing real data analyses, incorporating batch effects)
-* Day 2 Feedback (5 min)
+**Homework, participants, 45 min**  
+Add comments and vignettes to your package on GitHub
 
-## Day 3, Jul 20, 2016
+**Lecture 10, Implementing RR at MDACC, Keith, 45 min**  
+A review of ongoing efforts within the biostat department at MD Anderson to produce reproducible reports, and how we took a report written a few years ago using a mix of R and Stata and revamped it in R/rmarkdown to emulate not just the results but also the "look and feel" of the initial MS word output. Hits on tables and figures in rmarkdown, references, reformatting headers.
+
+## Day 3, Jul 19, 2017
 
 ### Session 9, 8:30-10
 
-* Discussion of Readings (15 min)
-* Writing Reports (45 min) 
-[pdf (150K)](2016_SISBID_3_16_good_reports.pdf)
-[printable pdf (150K)](2016_SISBID_3_16_good_reports_printable.pdf)
-* Begin Day 3 Homework (revising vignettes as reports)
+**Lecture 11, Writing Good Reports, Keith, 45 min**  
+The "non-codeable" parts of reproducibility - trying to increase the odds your collaborators will understand what it is you're trying to do.
+
+**Homework, participants, 45 min**  
+Automating common tasks with templates - report structures, directory structures, and look and feel
 
 ### Session 10, 10:30-12
 
-* More Day 3 Homework
-* Final Class Discussion (30 min)
-[pdf (100K)](2016_SISBID_3_17_wrapup.pdf)
-[printable pdf (100K)](2016_SISBID_3_17_wrapup_printable.pdf)
+**Lecture 12, Summary and Wrapup, Karl, 45 min**
+[pdf](2017_SISBID_03_05_summary_slides.pdf),
+[printable pdf](2017_SISBID_03_05_summary_printable.pdf)  
+Maintaining the Mindset  
 
+**Final Class Discussion**  
+
+**Evals, participants, 5 min**  
 
 # Recommended Reading/Browsing
 
@@ -158,17 +175,3 @@ This session will be a mixture of lecture and live demo.
 * [Yihui Xie, Dynamic Documents with R and knitr, 2e (2015)](http://www.amazon.com/Dynamic-Documents-knitr-Second-Chapman-ebook/dp/B00ZBYPJEW/ref=tmm_kin_title_0?_encoding=UTF8&sr=&qid=)
 
 [Karl Broman's Tools for RR Course](http://kbroman.org/Tools4RR/)
-
-## Day 1
-
-* [Potti et al (2006)](http://www.nature.com/nm/journal/v12/n11/abs/nm1491.html)
-* [our letter](http://www.nature.com/nm/journal/v13/n11/full/nm1107-1276b.html)
-* [the response](http://www.nature.com/nm/journal/v13/n11/full/nm1107-1277.html)
-* [Brad Perez's letter](http://www.cancerletter.com/articles/20150109_1)
-
-## Day 2
-
-* [Petricoin et al, Lancet (2002)](http://www.sciencedirect.com/science/article/pii/S0140673602077462)
-* [Baggerly et al, Bioinformatics (2004)](http://bioinformatics.oxfordjournals.org/content/20/5/777.long)
-* [Leek et el, Nat Rev Genet (2010)](http://www.nature.com/nrg/journal/v11/n10/full/nrg2825.html)
-
