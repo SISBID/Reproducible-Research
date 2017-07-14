@@ -623,7 +623,7 @@ Try out the knitr cache system.
 \begin{semiverbatim}
 \begin{lstlisting}[escapechar=!,linewidth=10.8cm]
 !{\color{foreground}{R/analysis.html}}!: !{\color{foreground}{R/analysis.Rmd Data/cleandata.csv}}!
-!{\color{foreground}{    cd R;R -e "rmarkdown::render('analysis.Rmd')"}!
+!{\color{foreground}{    cd R;R -e "rmarkdown::render('analysis.Rmd')"}}!
 
 Data/cleandata.csv: R/prepData.R RawData/rawdata.csv
     cd R;R CMD BATCH prepData.R
@@ -656,7 +656,7 @@ RawData/rawdata.csv: Python/xls2csv.py RawData/rawdata.xls
 \begin{semiverbatim}
 \begin{lstlisting}[escapechar=!,linewidth=10.8cm]
 !{\color{codehilit}{R/analysis.html}}!: !{\color{foreground}{R/analysis.Rmd Data/cleandata.csv}}!
-!{\color{foreground}{    cd R;R -e "rmarkdown::render('analysis.Rmd')"}!
+!{\color{foreground}{    cd R;R -e "rmarkdown::render('analysis.Rmd')"}}!
 
 Data/cleandata.csv: R/prepData.R RawData/rawdata.csv
     cd R;R CMD BATCH prepData.R
@@ -681,7 +681,7 @@ RawData/rawdata.csv: Python/xls2csv.py RawData/rawdata.xls
 \begin{semiverbatim}
 \begin{lstlisting}[escapechar=!,linewidth=10.8cm]
 !{\color{foreground}{R/analysis.html}}!: !{\color{codehilit}{R/analysis.Rmd Data/cleandata.csv}}!
-!{\color{foreground}{    cd R;R -e "rmarkdown::render('analysis.Rmd')"}!
+!{\color{foreground}{    cd R;R -e "rmarkdown::render('analysis.Rmd')"}}!
 
 Data/cleandata.csv: R/prepData.R RawData/rawdata.csv
     cd R;R CMD BATCH prepData.R
