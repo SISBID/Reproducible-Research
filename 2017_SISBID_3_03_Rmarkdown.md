@@ -230,6 +230,12 @@ that I like, to be inserted into the YAML header:
             code_folding: hide
     ---
 
+
+### Caching results
+
+Should mention `cache=TRUE` and `depends=[chunk name]`.
+
+
 ### Other languages
 
 You can execute code in many languages besides R, including
