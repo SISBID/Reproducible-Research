@@ -1,8 +1,10 @@
 all: lectures printable
 
-lectures: ../2017_SISBID_3_01_introduction_slides.pdf
+lectures: ../2017_SISBID_3_01_introduction_slides.pdf \
+		  ../2017_SISBID_3_05_bigjobs_slides.pdf
 
-printable: ../2017_SISBID_3_01_introduction_printable.pdf
+printable: ../2017_SISBID_3_01_introduction_printable.pdf \
+		   ../2017_SISBID_3_05_bigjobs_printable.pdf
 
 ../%.pdf: %.pdf
 	cp $< ../

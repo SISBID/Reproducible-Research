@@ -1,0 +1,615 @@
+\documentclass[12pt,t]{beamer}
+\usepackage{graphicx}
+\setbeameroption{hide notes}
+\setbeamertemplate{note page}[plain]
+\usepackage{listings}
+
+\input{LaTeX/header.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end of header
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% title info
+\title{5: EDA, Big Jobs, Automation}
+\author{}
+\date{\href{https://bit.ly/SISBID3}{\tt \color{foreground} bit.ly/SISBID3}}
+
+\begin{document}
+
+% title slide
+{
+\setbeamertemplate{footline}{} % no page number here
+\frame{
+  \titlepage
+  \note{Here, we'll talk about capturing exploratory data analysis
+    (EDA), handling big data and big jobs, and project automation.
+
+  Regarding exploratory data analysis, we want to capture the whole
+  process: what you're trying to do, what you're thinking about, what
+  you're seeing, and what you're concluding and why. And we want to do
+  so without getting in the way of the creative process.
+
+  Regarding long-running jobs, the problems are: (a) it's hard for
+  someone to re-do all of that work, and (b) large-scale calculations
+  tend to be organized in a system-dependent way, so even if time
+  weren't a factor, it'd be harder to transfer the calculations to
+  another system.
+} }
+
+
+
+\begin{frame}{Exploratory data analysis}
+
+\vspace{24pt}
+
+\bi
+\item what were you trying to do?
+\item what you're thinking about?
+\item what did you observe?
+\item what did you conclude, and why?
+\ei
+
+\note{We want to be able to capture the full outcome of exploratory
+  data analysis.
+
+  But we don't want to inhibit the creative flow. How to capture this
+  stuff?
+}
+\end{frame}
+
+
+\begin{frame}{Avoid}
+
+\vspace{24pt}
+
+\bi
+\item "How did I create this plot?"
+\item "Why did I decide to omit those six samples?"
+\item "Where (on the web) did I find these data?"
+\item "What was that interesting gene?"
+\ei
+
+\note{I've said all of these things to myself.
+}
+\end{frame}
+
+
+
+\begin{frame}{Basic principles}
+
+\vspace{24pt}
+
+\bi
+\item[] {\hilit Step 1}: slow down and document.
+\item[] {\hilit Step 2}: have sympathy for your future self.
+\item[] {\hilit Step 3}: have a system.
+\ei
+
+\note{I can't emphasize these things enough.
+
+  If you're not {\nhilit thinking} about keeping track of things, you
+  won't keep track of things.
+
+  One thing I like to do: write a set of comments describing my basic
+  plan, and then fill in the code afterwards. It forces you to think
+  things through, and then you'll have at least a rough sense of what
+  you were doing, even if you don't take the time to write further
+  comments.
+}
+\end{frame}
+
+\begin{frame}{Capturing EDA}
+
+\vspace{24pt}
+
+\bi
+\item copy-and-paste from an R file
+\item grab code from the {\tt .Rhistory} file
+\item Write an informal R Markdown file; \\
+  make use of the ``R Notebook'' features.
+\item Write code for use with the KnitR function {\tt spin()}
+\bi
+\item[] Comments like \; {\hilit \tt \#' This will become text}
+\item[] Chunk options like so: \; {\hilit \tt \#+ chunk\_label, echo=FALSE}
+\ei
+\ei
+
+\note{There are a number of techniques you can use to capture the EDA
+  process.
+
+  You don't need to save all of the figures, but you do need to save
+  the code and write down your motivation, observations, and
+  conclusions.
+
+  I usually start out with a plain R file and then move to more formal
+  R Markdown or AsciiDoc reports.
+}
+\end{frame}
+
+
+\begin{frame}[fragile]{A file to {\tt spin()}}
+
+\vspace{24pt}
+
+\begin{lstlisting}
+#' This is a simple example of an R file for use with spin().
+
+#' We'll start by setting the seed for the RNG.
+set.seed(53079239)
+
+#' We'll first simulate some data with x ~ N(mu=10, sig=5) and
+#' y = 2x + e, where e ~ N(mu=0, sig=2)
+x <- rnorm(100, 10, 5)
+y <- 2*x + rnorm(100, 0, 2)
+
+#' Here's a scatterplot of the data.
+plot(x, y, pch=21, bg="slateblue", las=1)
+\end{lstlisting}
+
+\note{Here's an example R file for use with {\tt spin()}.
+}
+\end{frame}
+
+
+
+\begin{frame}[c]{Activity}
+
+Try out {\tt knitr::spin()}:
+
+  \bi
+      \item Create an R script using
+      \bi
+          \item {\tt \#'} for text
+          \item {\tt \#+} for chunk options
+      \ei
+      \item Compile the script to HTML using {\tt knitr::spin()}
+      \item Open the resulting HTML file.
+  \ei
+
+\end{frame}
+
+
+
+
+\begin{frame}{Big jobs}
+
+\bbi
+\item You don't want {\tt knitr} running for a year.
+
+\item You don't want to re-run things if you don't have to.
+\ei
+
+\note{
+  It may not seem like ``big jobs'' are that big of a deal, but in my
+  mind this is the only real difficulty in reproducible research.
+
+  Okay, there's also the difficulty that some data can't be generally
+  distributed due to confidentiality issues.
+
+  But aside from subjects' confidentiality, the main problem is
+  how to manage and capture the really long-running computational
+  analyses where even on the same system it can be a gargantuan effort
+  to reproduce the results.
+}
+\end{frame}
+
+
+
+
+
+\begin{frame}{Biggish jobs in knitr}
+
+\bbi
+\item Manual caching
+\item Built-in {\tt cache=TRUE}
+\item Split the work and write a {\tt Makefile}
+\ei
+
+\note{
+  You can put big computations within an R Markdown file, but
+  {\nhilit personally} I don't want to wait more than a couple of
+  minutes for it to compile. If it's going to take longer than that,
+  I'll split things up.
+
+  And if you are going to have some large computations with knitr, you
+  won't want to re-run {\nhilit all} of them every time you make even
+  the smallest change to the text!
+
+  That's where you want to {\nhilit cache} some computations: save the
+  results and just load the results rather than re-run the
+  code. Unless the {\nhilit code} changes, in which case you {\nhilit
+  do} want to re-run it (and any other code that may depend on the
+  results).
+}
+\end{frame}
+
+
+\begin{frame}[c,fragile]{Manual caching}
+
+\begin{lstlisting}
+```{r a_code_chunk}
+file <- "cache/myfile.RData"
+
+if(file.exists(file)) {
+  load(file)
+} else{
+
+  ....
+
+  save(object1, object2, object3, file=file)
+}
+```
+\end{lstlisting}
+
+\note{
+  This is the ``by hand'' approach. If the file doesn't exist, run the
+  relevant code and save the needed results to the file. If the file
+  does exist, just load the file and skip the code.
+
+  If you want (or need) to re-run the code, you need to delete the
+  file {\nhilit manually}.
+
+  One issue: if you want the code to actually be {\nhilit shown}, you
+  need to repeat the code: in a chunk that is shown but isn't run, and
+  then in this chunk that is run but isn't shown.
+
+  You need to be very careful about dependencies.
+}
+\end{frame}
+
+
+\begin{frame}[c,fragile]{Chunk references}
+
+\begin{lstlisting}
+```{r not_shown, eval=FALSE}
+code_here <- 0
+```
+
+```{r a_code_chunk, echo=FALSE}
+file <- "cache/myfile.RData"
+
+if(file.exists(file)) {
+  load(file)
+} else{
+<<not_shown>>
+  save(code_here, file=file)
+}
+```
+\end{lstlisting}
+
+\note{
+  Here's how I'd avoid repeated code: use chunk references.
+
+  The {\tt <<not\_shown>>} is replaced by the code from that chunk with
+  that label.
+}
+\end{frame}
+
+
+
+\begin{frame}[c]{A cache gone bad}
+
+\figh{Figs/cache_gone_bad.png}{0.65}
+
+\note{
+  This is the sort of thing that can happen with manual caching.
+
+  This is Fig.\ 11.14 from my book, A guide to QTL mapping with R/qtl.
+
+  I saw it immediately upon flipping through my first paper copy of
+  the printed book.
+
+  I'd cached some results, but then changed the underlying software
+  in a fundamental way and didn't update the cache.
+}
+\end{frame}
+
+
+
+\begin{frame}[fragile]{Knitr's cache system}
+
+\vspace{18pt}
+
+\begin{lstlisting}
+```{r chunk_name, cache=TRUE}
+load("a_big_file.RData")
+med <- apply(object, 2, median, na.rm=TRUE)
+```
+\end{lstlisting}
+
+\bbi
+\item Chunk is re-run if edited.
+\item Otherwise, objects from previous run are loaded.
+\item Don't cache things with side effects
+  \bi
+  \item[] e.g., {\tt options()}, {\tt par()}
+  \ei
+\ei
+
+
+\note{
+  Knitr has a nice built-in system for caching.
+
+  A chunk with {\tt cache=TRUE} will be run once and then all objects
+  saved. In future runs, the code won't be run, but rather the cached
+  objects will be loaded.
+
+  But some things {\nvhilit shouldn't} be cached. ``Side effects''
+  change the state of things; mostly, this is changing global
+  variables. If these are placed in a cached chunk, the side effects
+  won't be captured when the cache is loaded.
+}
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]{Cache dependencies}
+
+\vspace{18pt}
+
+Manual dependencies
+\bigskip
+
+\begin{lstlisting}
+```{r chunkA, cache=TRUE}
+Sys.sleep(2)
+x <- 5
+```
+
+```{r chunkB, cache=TRUE, dependson="chunkA"}
+Sys.sleep(2)
+y <- x + 1
+```
+
+```{r chunkC, cache=TRUE, dependson="chunkB"}
+Sys.sleep(2)
+z <- y + 1
+```
+\end{lstlisting}
+
+\note{
+  You can indicate dependencies among chunks. Here, if {\tt chunkA} is
+  re-run, the other two will be as well.
+}
+\end{frame}
+
+
+\begin{frame}[fragile]{Cache dependencies}
+
+\vspace{18pt}
+
+Automatic dependencies
+\bigskip
+
+\begin{lstlisting}
+```{r setup, include=FALSE}
+opts_chunk$set(autodep = TRUE)
+dep_auto()
+```
+\end{lstlisting}
+
+
+\note{
+  There's also an automatic system for determining dependencies among chunks.
+
+  I've not used it.
+}
+\end{frame}
+
+
+
+
+
+\begin{frame}{Parallel computing}
+
+\vspace{18pt}
+
+If your computer has multiple processors, use {\tt library(parallel)}
+to make use of them.
+
+\bbi
+\item {\tt detectCores()}
+\item {\tt \hilit RNGkind("L'Ecuyer-CMRG")} and {\tt \hilit mclapply} (Unix/Mac)
+\item {\tt \hilit makeCluster}, {\tt \hilit clustersetRNGStream}, {\tt
+  \hilit clusterApply}, and {\tt \hilit stopCluster} (Windows)
+\ei
+
+\note{
+  R has a built-in package for performing parallel computations. A
+  number of instances of R are invoked, calculations begun, and then
+  the results brought back together.
+
+  The code can be a bit ugly, but it's not so bad once you get used to
+  it.
+
+  See the links on the resources page,
+  {\tt http://kbroman.github.io/Tools4RR/pages/resources.html}
+
+}
+\end{frame}
+
+
+\begin{frame}{Systems for distributed computing}
+
+\bbi
+\item At UW-Madison, we use \href{http://research.cs.wisc.edu/htcondor}{HTCondor}
+\item There are
+  \href{http://en.wikipedia.org/wiki/Comparison_of_cluster_software}{oddles
+    of similar systems}
+\item "By hand"
+\ei
+
+\note{
+  For really big jobs, you'll want to distribute the computations
+  across multiple computers.
+
+  At UW-Madison, we use the locally-developed software HTCondor. This
+  provides a way of distributing enormous numbers of jobs across a
+  heterogeneous set of computers and collecting the results.
+
+  There exists other, similar systems for distributing and managing
+  jobs across clusters of computers.
+
+  My own approach is more primitive: I have a Perl script that
+  converts a template R script into a bunch of R input files (by
+  replacing every instance of ``{\tt SUB}'' in the template with a
+  job-specific index). It also creates a script to set those running.
+
+  In either case, you'd write another R script to combine the results
+  from the multiple jobs.
+}
+\end{frame}
+
+
+\begin{frame}{Simulations}
+
+\bbi
+\item Computer simulations require RNG seeds ({\tt .Random.seed} in R).
+\item Multiple parallel jobs need different seeds.
+\item Don't rely on the current seed, or on having it generated from
+  the clock.
+\item Use something like {\hilit \tt set.seed(91820205 + i)}
+\item An alternative is create a big batch of simulated data sets in
+  advance.
+\ei
+
+\note{
+  RNG = Random number generator
+
+  Simulations split across multiple CPUs each need their own seed.
+  In R, the seed is saved as {\tt .Random.seed}; if you start all of
+  the simulations from the same directory, they could all get exactly
+  the same seed.
+
+  I tend to include a call to {\tt set.seed} at the top of each R
+  script, with the seed being some big number plus an index for the
+  job.
+
+  You could, alternatively, generate all of the simulated data sets in
+  advance. An advantage of this is that it'd be easier to reproduce
+  the results later. Just be sure to save (and document) the code you
+  used to generate the data.
+}
+\end{frame}
+
+
+
+\begin{frame}{Save everything}
+
+\bbi
+\item RNG seeds
+\item input
+\item output
+\item version numbers, with {\tt sessionInfo()}
+\item raw results
+\item script to combine results
+\item combined results
+\item {\tt ReadMe} describing the point
+\ei
+
+\note{
+  This stuff (particularly code input \& text output) doesn't take up
+  much space. Compartmentalize it and save it.
+}
+\end{frame}
+
+
+\begin{frame}{Compartmentalize big jobs}
+
+\bbi
+\item Separate directory for each batch of big computations.
+\item Collect the results in `.RData` or `.rds` files.
+\item KnitR-based documents for the analysis/use of those results.
+\ei
+
+\note{
+  My approach, for projects that involve big
+  computations: compartmentalize those big computations into chunks,
+  each in a separate directory to contain all of the materials and
+  results.
+
+  I use GNU Make to handle the combination of those results as
+  well as the compilation of any KnitR-based files that describe and
+  carry out the further analyses.
+
+  This won't capture the entire workflow, but it will indicate
+  almost all of it, and the big jobs will be encapsulated as
+  subdirectories, and the source of the major results will be
+  indicated.
+}
+\end{frame}
+
+
+\begin{frame}{Potential problems}
+
+\bbi
+\item Forgetting {\tt save()} in your distributed jobs
+\item A bug in the {\tt save()} command
+\item Keeping things synchronized
+  \bi
+  \item Have you re-run the big jobs when upstream data were revised?
+  \ei
+\ei
+
+\note{
+  These are common mistakes I make.
+
+  I forget the {\tt save} command and so run a ton of computations and
+  then get no results.
+
+  Or my {\tt save} command has an error and so I run a ton of
+  computations and then it dies on the last line of the script.
+
+  Or the upstream data changes and I fail to recognize that I need to
+  re-run the big jobs that depend on it.
+}
+\end{frame}
+
+
+
+
+
+\begin{frame}{Big jobs summary}
+
+\bbi
+\item Careful organization and modularization.
+\item Save everything.
+\item Document everything.
+\item Learn the basic skills for distributed computing.
+\ei
+
+\note{
+  It's important to always end with a summary.
+
+  Research with long-running computations are hard to make fully
+  reproducible. Modularize the big jobs and document their
+  purpose. And document the relationships among things.
+}
+\end{frame}
+
+
+
+\begin{frame}[c]{Activity}
+
+Try out the knitr cache system.
+
+  \bi
+      \item Create an RMarkdown document with multiple dependent
+        chunks.
+      \item Maybe add {\tt Sys.sleep(5)} to slow things down, as if
+        the jobs were taking a while.
+      \item Compile the document.
+      \item Edit a chunk.
+      \item Re-compile the document and see what was actually run and
+        what was taken from cache.
+  \ei
+
+\end{frame}
+
+
+
+
+
+\end{document}
