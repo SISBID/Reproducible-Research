@@ -609,6 +609,110 @@ Try out the knitr cache system.
 \end{frame}
 
 
+\begin{frame}[fragile,c]{Automate the process (GNU Make)}
+
+\begin{center}
+\begin{minipage}[c]{10.8cm}
+\begin{semiverbatim}
+\begin{lstlisting}[escapechar=!,linewidth=10.8cm]
+!{\color{foreground}{R/analysis.html}}!: !{\color{foreground}{R/analysis.Rmd Data/cleandata.csv}}!
+!{\color{foreground}{    cd R;R -e "rmarkdown::render('analysis.Rmd')"}!
+
+Data/cleandata.csv: R/prepData.R RawData/rawdata.csv
+    cd R;R CMD BATCH prepData.R
+
+RawData/rawdata.csv: Python/xls2csv.py RawData/rawdata.xls
+    Python/xls2csv.py RawData/rawdata.xls > RawData/rawdata.csv
+\end{lstlisting}
+\end{semiverbatim}
+\end{minipage}
+\end{center}
+
+\note{GNU Make is an old (and rather quirky) tool for automating the
+  process of building computer programs. But it's useful much more
+  broadly, and I find it valuable for automating the full process of
+  data file manipulation, data cleaning, and analysis.
+
+  In addition to {\nhilit automating} a complex process, it also
+  {\nhilit documents} the process, including the dependencies among
+  data files and scripts.
+}
+\end{frame}
+
+
+\begin{frame}<handout:0>[fragile,c]{Automate the process (GNU Make)}
+
+\addtocounter{framenumber}{-1}
+
+\begin{center}
+\begin{minipage}[c]{10.8cm}
+\begin{semiverbatim}
+\begin{lstlisting}[escapechar=!,linewidth=10.8cm]
+!{\color{codehilit}{R/analysis.html}}!: !{\color{foreground}{R/analysis.Rmd Data/cleandata.csv}}!
+!{\color{foreground}{    cd R;R -e "rmarkdown::render('analysis.Rmd')"}!
+
+Data/cleandata.csv: R/prepData.R RawData/rawdata.csv
+    cd R;R CMD BATCH prepData.R
+
+RawData/rawdata.csv: Python/xls2csv.py RawData/rawdata.xls
+    Python/xls2csv.py RawData/rawdata.xls > RawData/rawdata.csv
+\end{lstlisting}
+\end{semiverbatim}
+\end{minipage}
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}<handout:0>[fragile,c]{Automate the process (GNU Make)}
+
+\addtocounter{framenumber}{-1}
+
+\begin{center}
+\begin{minipage}[c]{10.8cm}
+\begin{semiverbatim}
+\begin{lstlisting}[escapechar=!,linewidth=10.8cm]
+!{\color{foreground}{R/analysis.html}}!: !{\color{codehilit}{R/analysis.Rmd Data/cleandata.csv}}!
+!{\color{foreground}{    cd R;R -e "rmarkdown::render('analysis.Rmd')"}!
+
+Data/cleandata.csv: R/prepData.R RawData/rawdata.csv
+    cd R;R CMD BATCH prepData.R
+
+RawData/rawdata.csv: Python/xls2csv.py RawData/rawdata.xls
+    Python/xls2csv.py RawData/rawdata.xls > RawData/rawdata.csv
+\end{lstlisting}
+\end{semiverbatim}
+\end{minipage}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}<handout:0>[fragile,c]{Automate the process (GNU Make)}
+
+\addtocounter{framenumber}{-1}
+
+\begin{center}
+\begin{minipage}[c]{10.8cm}
+\begin{semiverbatim}
+\begin{lstlisting}[escapechar=!,linewidth=10.8cm]
+!{\color{foreground}{R/analysis.html}}!: !{\color{foreground}{R/analysis.Rmd Data/cleandata.csv}}!
+!{\color{codehilit}{    cd R;R -e "rmarkdown::render('analysis.Rmd')"}}!
+
+Data/cleandata.csv: R/prepData.R RawData/rawdata.csv
+    cd R;R CMD BATCH prepData.R
+
+RawData/rawdata.csv: Python/xls2csv.py RawData/rawdata.xls
+    Python/xls2csv.py RawData/rawdata.xls > RawData/rawdata.csv
+\end{lstlisting}
+\end{semiverbatim}
+\end{minipage}
+\end{center}
+\end{frame}
+
+
+
 
 
 
