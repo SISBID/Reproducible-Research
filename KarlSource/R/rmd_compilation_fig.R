@@ -1,10 +1,8 @@
 # Figure re Rmd compilation
 
-#par(bty="n")
-
 png("../Figs/rmd_compilation_fig.png", height=300, width=800,
     pointsize=18)
-par(mar=rep(0.1, 4))
+par(mar=rep(0.1, 4), bty="n")
 plot(0,0,type="n",
      xlim=c(0,100), ylim=c(100,0),
      xlab="", ylab="", xaxt="n", yaxt="n")
