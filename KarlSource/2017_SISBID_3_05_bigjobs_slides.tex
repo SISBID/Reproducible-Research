@@ -103,7 +103,7 @@
 
 \vspace{24pt}
 
-\bi
+\bbi
 \item copy-and-paste from an R file
 \item grab code from the {\tt .Rhistory} file
 \item Write an informal R Markdown file; \\
@@ -167,6 +167,10 @@ Try out {\tt knitr::spin()}:
       \item Open the resulting HTML file.
   \ei
 
+  \note{
+    A brief activity to try out {\tt knitr::spin()}.
+    }
+
 \end{frame}
 
 
@@ -203,7 +207,7 @@ Try out {\tt knitr::spin()}:
 \bbi
 \item Manual caching
 \item Built-in {\tt cache=TRUE}
-\item Split the work and write a {\tt Makefile}
+\item Split the work into a separate subdirectory.
 \ei
 
 \note{
@@ -424,7 +428,8 @@ to make use of them.
   The code can be a bit ugly, but it's not so bad once you get used to
   it.
 
-  See the links on the resources page,
+  See the links on the resources page for Karl's Tools for
+  Reproducible Research course,
   {\tt http://kbroman.github.io/Tools4RR/pages/resources.html}
 
 }
@@ -581,8 +586,6 @@ to make use of them.
 \ei
 
 \note{
-  It's important to always end with a summary.
-
   Research with long-running computations are hard to make fully
   reproducible. Modularize the big jobs and document their
   purpose. And document the relationships among things.
@@ -605,6 +608,10 @@ Try out the knitr cache system.
       \item Re-compile the document and see what was actually run and
         what was taken from cache.
   \ei
+
+  \note{
+    A brief activity to try out caching in RMarkdown
+  }
 
 \end{frame}
 
@@ -713,6 +720,128 @@ RawData/rawdata.csv: Python/xls2csv.py RawData/rawdata.xls
 
 
 
+\begin{frame}{Automation with GNU Make}
+
+\vspace{24pt}
+
+\bi
+\itemsep12pt
+\item {\tt Make} is for more than just compiling software
+\item The {\color{hilit} essence} of what we're trying to do
+\item Automates a workflow
+\item Documents the workflow
+\item Documents the dependencies among data files, code
+\item Re-runs only the necessary code, based on what has changed
+\ei
+
+
+\note{People usually think of Make as a tool for automating the
+  compilation of software, but it can be used much more generally.
+
+  To me, Make is the essential tool for reproducible research:
+  automation plus the documentation of dependencies and workflows.
+}
+\end{frame}
+
+
+
+
+
+\begin{frame}[fragile]{Fancier example}
+
+\begin{semiverbatim}
+\begin{lstlisting}
+FIG_DIR = Figs
+
+mypaper.pdf: mypaper.tex $(FIG_DIR)/fig1.pdf $(FIG_DIR)/fig2.pdf
+    pdflatex mypaper
+
+# One line for both figures
+$(FIG_DIR)/%.pdf: R/%.R
+    cd R;R CMD BATCH $(<F)
+
+# Use "make clean" to remove the PDFs
+clean:
+    rm *.pdf Figs/*.pdf
+\end{lstlisting}
+\end{semiverbatim}
+
+\note{As I said, you can get really fancy with GNU Make.
+
+  Use variables for directory names or compiler flags. (This example
+  is not a good one.)
+
+  Use pattern rules and automatic variables to avoid repeating
+  yourself. With {\tt \%}, we have one line covering both
+  {\tt fig1.pdf} and {\tt fig2.pdf}. The {\tt \$(<F)}
+  is the file part of
+  the first dependency.
+
+  Look at the manual for Make and the many online tutorials, such as
+  the one from Software Carpentry, or {\tt http://kbroman.org/minimal\_make}.
+}
+\end{frame}
+
+
+
+\begin{frame}[c]{Installing Make}
+
+  \bbi
+  \item On Macs, Make should be installed. Type {\tt make --version}
+    to check.
+
+  \item On Windows, probably the easiest is to install
+    \href{https://cran.r-project.org/bin/windows/Rtools/}{Rtools},
+    which includes Make.
+    \bi
+    \item[]
+      \href{https://cran.r-project.org/bin/windows/Rtools}{\tt
+        \footnotesize cran.r-project.org/bin/windows/Rtools}
+      \ei
+      \ei
+
+      \note{
+        Installation of these sorts of command-line tools on Windows
+        can be a bit difficult.
+      }
+
+\end{frame}
+
+
+\begin{frame}[fragile]{How do you use Make?}
+
+\vspace{6pt}
+
+{\small
+\bi
+\item If you name your make file {\tt Makefile}, then just go into the
+directory containing that file and type {\tt \color{hilit} make}
+
+\item If you name your make file {\tt something.else}, then type \\
+{\tt \color{hilit} make -f something.else}
+
+\item Actually, the commands above will build the {\color{vhilit} first}
+  target listed in the make file. So I'll often include something like
+  the following.
+
+\begin{quote}
+{\tt \color{hilit} all: target1 target2 target3}
+\end{quote}
+
+  Then typing {\tt \color{hilit} make all} (or just {\tt
+    \color{hilit} make}, if {\tt \color{hilit} all} is listed
+  first in the file) will build all of those
+  things.
+
+\item To be build a specific target, type {\tt \color{hilit} make target}.
+  For example, {\tt \color{hilit} make Figs/fig1.pdf}
+\ei
+}
+
+\note{
+  Details on the use.
+}
+\end{frame}
 
 
 
