@@ -60,3 +60,16 @@ I'll show a couple of examples. The advantages are:
 "[Markdown](https://daringfireball.net/projects/markdown/syntax)") and
 chunks of code. When compiled, the code chunks are executed and
 replaced with their results.
+
+### Creating a new RMarkdown document
+
+In RStudio, to create a new RMarkdown document, go to File → New File
+→ R Markdown. Then provide a title (you can change it later) and
+choose the default output format (though we'll stick with the default,
+HTML).
+
+A new document will be created, with some default content that
+provide useful reminders of some of the options.
+
+Immediately save the document, giving the file a name and ensuring
+that it's saved in the correct place.
