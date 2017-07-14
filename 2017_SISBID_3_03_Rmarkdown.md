@@ -35,8 +35,9 @@ Options → Pane Layout.
 To get a list of RStudio keyboard shortcuts, go to Help → Keyboard
 Shortcuts Help.
 
-You can type code directly into the R console
-
+You can type code directly into the R console. But mostly I'll have a
+script and copy-paste from it (using the RStudio keyboard shortcuts).
+Or really I should be using RMarkdown.
 
 ## RMarkdown
 
