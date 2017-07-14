@@ -114,7 +114,11 @@ that it's saved in the correct place.
   the graph will be inserted into the document that's produced.
 
 - Click the "Knit" button (with the cutest-icon-ever ball of yarn) to
-  compile the document.
+  compile the document. Compilation involves,
+  [knitr](https://yihui.name/knitr), [pandoc](https://pandoc.org/),
+  and (for PDFs) [latex](https://www.latex-project.org/).
+
+  ![Rmd compilation](KarlSource/Figs/rmd_compilation_fig.png)
 
 
 
