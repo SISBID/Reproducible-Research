@@ -3,10 +3,10 @@ title: 'SISBID 2017 Module 3: Reproducible Research'
 author: "Keith Baggerly and Karl Broman"
 date: "July 17-19, 2017"
 output:
+  word_document: default
   pdf_document: default
   html_document:
     keep_md: yes
-  word_document: default
 ---
 
 This module is part of the 
@@ -117,7 +117,9 @@ Discussion of how recommendations are set, and reconstruction of analyses obscur
 
 ### Session 5, 8:30-10
 
-**Lecture 7, Problems with Replication, Keith, 40 min**  
+**Lecture 7, Problems with Replication, Keith, 40 min**
+[pdf](2017_SISBID_3_07_problems_w_replication.pdf),
+[printable pdf](2017_SISBID_3_07_problems_w_replication_printable.pdf)  
 A review of several factors which can make results harder to replicate (be seen again with new samples) vs hard to reproduce (starting from the same raw data)
 
 **Lecture 8, Git on your Computer, Keith, 50 min, mostly live**  
@@ -125,7 +127,7 @@ Using git to track files and versions; init, status, add, commit, branch, checko
 
 ### Session 6, 10:30-12
 
-**Lecture 8, Git with GitHub, Keith, 45 min**  
+**Lecture 9, Git with GitHub, Keith, 45 min**  
 Introducing GitHub, perhaps the "killer app" for git; working with remote repositories, bare repos, cloning, pull, push  
 
 **Homework, participants, 45 min**  
@@ -136,7 +138,7 @@ This session will be a mixture of lecture and live demo.
 
 ### Session 7, 1:30-3
 
-**Lecture 9, Collaborating with Git, Keith, 45 min**  
+**Lecture 10, Collaborating with Git, Keith, 45 min**  
 Working with others, making comments, providing feedback, fixing errors  
 
 **Homework, participants, 45 min**  
@@ -147,14 +149,14 @@ Working with your neighbor's repos
 **Homework, participants, 45 min**  
 Add comments and vignettes to your package on GitHub
 
-**Lecture 10, Implementing RR at MDACC, Keith, 45 min**  
+**Lecture 11, Implementing RR at MDACC, Keith, 45 min**  
 A review of ongoing efforts within the biostat department at MD Anderson to produce reproducible reports, and how we took a report written a few years ago using a mix of R and Stata and revamped it in R/rmarkdown to emulate not just the results but also the "look and feel" of the initial MS word output. Hits on tables and figures in rmarkdown, references, reformatting headers.
 
 ## Day 3, Jul 19, 2017
 
 ### Session 9, 8:30-10
 
-**Lecture 11, Writing Good Reports, Keith, 45 min**  
+**Lecture 12, Writing Good Reports, Keith, 45 min**  
 The "non-codeable" parts of reproducibility - trying to increase the odds your collaborators will understand what it is you're trying to do.
 
 **Homework, participants, 45 min**  
@@ -162,9 +164,9 @@ Automating common tasks with templates - report structures, directory structures
 
 ### Session 10, 10:30-12
 
-**Lecture 12, Summary and Wrapup, Karl, 45 min**
-[pdf](2017_SISBID_03_05_summary_slides.pdf),
-[printable pdf](2017_SISBID_03_05_summary_printable.pdf)  
+**Lecture 13, Summary and Wrapup, Karl, 45 min**
+[pdf](2017_SISBID_03_13_summary_slides.pdf),
+[printable pdf](2017_SISBID_03_13_summary_printable.pdf)  
 Maintaining the Mindset  
 
 **Final Class Discussion**  
