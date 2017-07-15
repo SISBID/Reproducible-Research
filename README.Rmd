@@ -5,7 +5,8 @@ date: "July 17-19, 2017"
 output:
   word_document: default
   pdf_document: default
-  html_document: default
+  html_document:
+    keep_md: yes
 ---
 
 This module is part of the 
@@ -105,17 +106,19 @@ writing a basic package
 [activity 2 caching Rmd](2017_SISBID_03_05_bigjobs_activity2_cache.Rmd)  
 A discussion of challenges arising when data or jobs are big enough to make rerunning unpleasant or infeasible
 
-**Lecture 5, Vitamin D, Keith, 10-15 min**  
+**Lecture 6, Vitamin D, Keith, 10-15 min**
+[pdf](2017_SISBID_03_06_vitamin_d.pdf),
+[printable pdf](2017_SISBID_03_06_vitamin_d.pdf)  
 Discussion of how recommendations are set, and reconstruction of analyses obscured by lack of code and misapplied terminology. Linked to course homeworks.
 
 ## Day 2, Jul 18, 2017
 
 ### Session 5, 8:30-10
 
-**Lecture 6, Problems with Replication, Keith, 40 min**  
+**Lecture 7, Problems with Replication, Keith, 40 min**  
 A review of several factors which can make results harder to replicate (be seen again with new samples) vs hard to reproduce (starting from the same raw data)
 
-**Lecture 7, Git on your Computer, Keith, 50 min, mostly live**  
+**Lecture 8, Git on your Computer, Keith, 50 min, mostly live**  
 Using git to track files and versions; init, status, add, commit, branch, checkout, merge
 
 ### Session 6, 10:30-12
