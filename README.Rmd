@@ -3,10 +3,10 @@ title: 'SISBID 2017 Module 3: Reproducible Research'
 author: "Keith Baggerly and Karl Broman"
 date: "July 17-19, 2017"
 output:
-  word_document: default
   pdf_document: default
   html_document:
     keep_md: yes
+  word_document: default
 ---
 
 This module is part of the 
@@ -91,7 +91,9 @@ Set up the analysis folder, write the preprocessing script in R markdown, compil
 
 ### Session 3, 1:30-3
 
-**Lecture 4, R Packages, Keith, 45-60 min (much live demo)**  
+**Lecture 4, R Packages, Keith, 45-60 min (much live demo)**
+[pdf](2017_03_04_SISBID_r_packages.pdf),
+[printable pdf](2017_03_04_SISBID_r_packages_printable.pdf)  
 How to write R packages quickly and easily with devtools, roxygen2, rmarkdown, and knitr - overhead, code, data, vignettes, clean code, and templates 
 
 **Homework part 2, participants, 30 min**  

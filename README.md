@@ -84,7 +84,9 @@ Set up the analysis folder, write the preprocessing script in R markdown, compil
 
 ### Session 3, 1:30-3
 
-**Lecture 4, R Packages, Keith, 45-60 min (much live demo)**  
+**Lecture 4, R Packages, Keith, 45-60 min (much live demo)**
+[pdf](2017_03_04_SISBID_r_packages.pdf),
+[printable pdf](2017_03_04_SISBID_r_packages_printable.pdf)  
 How to write R packages quickly and easily with devtools, roxygen2, rmarkdown, and knitr - overhead, code, data, vignettes, clean code, and templates 
 
 **Homework part 2, participants, 30 min**  
