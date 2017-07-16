@@ -19,7 +19,7 @@ Keith A. Baggerly
 
 and  
 
-Karl Broman  
+[Karl Broman](http://kbroman.org)
 [kbroman@biostat.wisc.edu](mailto:kbroman@biostat.wisc.edu)
 
 # Course Goals
