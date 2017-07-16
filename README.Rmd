@@ -15,16 +15,19 @@ This module is part of the
 Taught by
 
 Keith A. Baggerly
+<br/>
 [kabagger@mdanderson.org](mailto:kabagger@mdanderson.org)
 
 and
 
 [Karl Broman](http://kbroman.org)
+<br/>
 [kbroman@biostat.wisc.edu](mailto:kbroman@biostat.wisc.edu)
 
 # Course Goals
 
 * Course Goals
+<br/>
 [pdf](RRcourse_goals.pdf),
 [html](RRcourse_goals.html),
 [MS Word](RRcourse_goals.docx),
@@ -33,6 +36,7 @@ and
 # Homework
 
 * Homework
+<br/>
 [pdf](homework.pdf),
 [html](homework.html),
 [MS Word](homework.docx),
@@ -67,6 +71,7 @@ These are from GitHub
 [printable pdf](2017_SISBID_3_00_basic_intro_printable.pdf)
 <br/>
 Introduction to the course, administration, course goals
+<br/>
 Definitions - reproduction vs replication
 
 **Lecture 1, Intro and Common Problems, Karl, 40 min**
@@ -91,6 +96,7 @@ A case study describing just how bad things can get, with clinical implications
 An introduction to R markdown, RStudio, and Literate Programming, with examples illustrating how to produce reproducible reports
 
 **Homework part 1, participants, 45 min**
+<br/>
 Set up the analysis folder, write the preprocessing script in R markdown, compile to html / pdf / word
 
 ### Session 3, 1:30-3
@@ -102,6 +108,7 @@ Set up the analysis folder, write the preprocessing script in R markdown, compil
 How to write R packages quickly and easily with devtools, roxygen2, rmarkdown, and knitr - overhead, code, data, vignettes, clean code, and templates
 
 **Homework part 2, participants, 30 min**
+<br/>
 writing a basic package
 
 ### Session 4, 3:30-5
@@ -145,7 +152,9 @@ Using git to track files and versions; init, status, add, commit, branch, checko
 Introducing GitHub, perhaps the "killer app" for git; working with remote repositories, bare repos, cloning, pull, push
 
 **Homework, participants, 45 min**
+<br/>
 Establishing a repo at GitHub
+<br/>
 Post your package to GitHub
 
 This session will be a mixture of lecture and live demo.
@@ -153,17 +162,21 @@ This session will be a mixture of lecture and live demo.
 ### Session 7, 1:30-3
 
 **Lecture 10, Collaborating with Git, Keith, 45 min**
+<br/>
 Working with others, making comments, providing feedback, fixing errors
 
 **Homework, participants, 45 min**
+<br/>
 Working with your neighbor's repos
 
 ### Session 8, 3:30-5
 
 **Homework, participants, 45 min**
+<br/>
 Add comments and vignettes to your package on GitHub
 
 **Lecture 11, Implementing RR at MDACC, Keith, 45 min**
+<br/>
 A review of ongoing efforts within the biostat department at MD Anderson to produce reproducible reports, and how we took a report written a few years ago using a mix of R and Stata and revamped it in R/rmarkdown to emulate not just the results but also the "look and feel" of the initial MS word output. Hits on tables and figures in rmarkdown, references, reformatting headers.
 
 ## Day 3, Jul 19, 2017
@@ -177,6 +190,7 @@ A review of ongoing efforts within the biostat department at MD Anderson to prod
 The "non-codeable" parts of reproducibility - trying to increase the odds your collaborators will understand what it is you're trying to do.
 
 **Homework, participants, 45 min**
+<br/>
 Automating common tasks with templates - report structures, directory structures, and look and feel
 
 ### Session 10, 10:30-12
