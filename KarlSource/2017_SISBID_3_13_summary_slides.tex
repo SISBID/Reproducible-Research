@@ -264,28 +264,245 @@ will be reproducible.
 \end{frame}
 
 
-\begin{frame}[c]{Some of the things we didn't cover}
+\begin{frame}<handout:0>[c]{}
 
+  \begin{center}
+    \large
+    Some of the things we didn't cover
+  \end{center}
+\end{frame}
+
+
+\begin{frame}[c]{\tt R CMD BATCH}
+
+  \bbi
+\item[] Why is it cool?
   \bi
-\item Command-line, including `R CMD BATCH`
-\item Software testing (and debugging)
-\item Code review / paired programming
-\item Capturing versions of dependent software (e.g.
-  \href{https://rstudio.github.io/packrat}{packrat})
-\item Containers (e.g. \href{https://www.docker.com}{\tt \footnotesize docker.com})
-\item Coding conventions, e.g.
-  Hadley's \href{http://adv-r.had.co.nz/Style.html}{\tt \footnotesize
-    adv-r.had.co.nz/Style.html} and
-  Google's
+\item Scripting lets you run everything in the background
+  \item Increases the odds you've got \emph{everything\/} reproducible
+    \ei
+  \item[] Why didn't we cover it?
+    \bi
+  \item A bit geek-heavy
+    \ei
+  \item[] Where would we point you?
+    \bi
+    \item Stackoverflow discussion:
+      \href{http://bit.ly/so_rscript}{\tt bit.ly/so\_rscript}
+    \item Codecademy Learn the Command Line lesson:
+      \href{http://bit.ly/learn_command_line}{\tt bit.ly/learn\_command\_line}
+   \ei
+ \ei
+
+ \note{
+   Command-line-based programming, such as with {\tt R CMD BATCH}, is
+   really useful for making a project fully reproducible.
+
+   Command-line-based programming gives you more complete control of
+   your workflows.
+ }
+
+\end{frame}
+
+
+
+\begin{frame}[c]{Coding conventions}
+
+  \bbi
+\item[] Why are they cool?
+  \bi
+  \item They help you keep things consistent between team members
+  \item They make code easier to read, and more likely to be used
+  \ei
+\item[] Why didn't we cover them?
+    \bi
+    \item Not sure, really
+    \ei
+\item[] Where would we point you?
+    \bi
+    \item Hadley's recommendations
+  \href{http://adv-r.had.co.nz/Style.html}{\tt \footnotesize
+    adv-r.had.co.nz/Style.html}
+    \item Google's recommendations
   \href{https://google.github.io/styleguide/Rguide.xml}{\tt
       \footnotesize google.github.io/styleguide/Rguide.xml}
-\item Report templates,
-  \href{http://rmarkdown.rstudio.com/developer_document_templates.html}{\tt
-    \footnotesize rmarkdown.rstudio.com/developer\_document\_templates.html}
+   \ei
+\ei
 
+ \note{
+   Coding conventions help to keep things consistent and make code
+   easier to read.
+ }
+
+\end{frame}
+
+
+
+
+
+
+\begin{frame}[c]{Code review}
+
+  \bbi
+\item[] Why is it cool?
+  \bi
+  \item Helps to find bugs and clean up confusing bits
+  \item Potentially a test of the reproducibility of your work
   \ei
+\item[] Why didn't we cover it?
+    \bi
+    \item Not sure, really
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item Software Carpentry blog post,
+    \href{http://bit.ly/swc_codereview}{\tt bit.ly/swc\_codereview}
+  \item Titus Brown's blog post,
+    \href{http://bit.ly/titus_codereview}{\tt http://bit.ly/titus\_codereview}
+   \ei
+\ei
 
-\note{ There's a lot that we didn't cover.}
+ \note{
+   Working together with another person and reviewing each other's
+   code can lead to better code and better projects.
+ }
+
+\end{frame}
+
+
+
+
+\begin{frame}[c]{Software testing}
+
+  \bbi
+\item[] Why is it cool?
+  \bi
+  \item Explicit tests help you to avoid bugs, and to find bugs sooner
+  \ei
+\item[] Why didn't we cover it?
+    \bi
+    \item Not sure, really
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item testthat package,
+    \href{https://github.com/hadley/testthat}{\tt github.com/hadley/testthat}
+  \item
+    \href{https://www.amazon.com/Testing-Code-Chapman-Hall-CRC/dp/1498763650}{Testing
+      R Code} book
+   \ei
+\ei
+
+ \note{
+   Hadley wrote, ``It's not that we don't test our code, it's that we don't store our tests so they can be re-run automatically.''
+
+   Including explicit tests and running them repeatedly will help you
+   to avoid bugs or at least to find bugs sooner.
+
+ }
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}[c]{Capturing dependencies}
+
+  \bbi
+\item[] Why is it cool?
+  \bi
+  \item Ensure that your carefully constructed reproducible project
+    doesn't fail due to a change in one of the packages you use
+  \ei
+\item[] Why didn't we cover it?
+    \bi
+    \item Not sure, really
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item packrat package, \href{https://github.com/rstudio/packrat}{\tt github.com/rstudio/packrat}
+  \item checkpoint package,
+    \href{https://github.com/RevolutionAnalytics/checkpoint}{\tt github.com/RevolutionAnalytics/checkpoint}
+   \ei
+\ei
+
+ \note{
+   Saving copies of the exact versions of packages that you use can
+   help ensure that your reproducible project will continue to be
+   reproducible.
+ }
+
+\end{frame}
+
+
+
+
+\begin{frame}[c]{Containers (e.g. docker)}
+
+  \bbi
+\item[] Why are they cool?
+  \bi
+  \item Capture your entire environment, so your project is \emph{for
+    sure\/} fully reproducible.
+  \ei
+\item[] Why didn't we cover them?
+    \bi
+    \item A bit technical
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item
+    \href{https://ropensci.org/blog/blog/2014/10/23/introducing-rocker}{Rocker:
+      Docker for R}
+  \item \href{http://ropenscilabs.github.io/r-docker-tutorial/}{R
+    Docker tutorial}
+   \ei
+\ei
+
+ \note{
+   Docker containers allow you to encapsulate your entire environment
+   (including the operating system and all libraries) for
+   \emph{full\/} reproducibility.
+ }
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+\begin{frame}[c]{R Markdown templates}
+
+  \bbi
+\item[] Why are they cool?
+  \bi
+  \item More complete control over the appearance of your document
+  \ei
+\item[] Why didn't we cover them?
+    \bi
+    \item A bit technical
+    \ei
+\item[] Where would we point you?
+    \bi
+  \item
+    \href{http://rmarkdown.rstudio.com/developer_document_templates.html}{R
+        Markdown documentation}
+   \ei
+\ei
+
+ \note{
+   Document templates give you full control over the appearance of
+   your R Markdown document output.
+ }
 
 \end{frame}
 
