@@ -114,7 +114,7 @@ writing a basic package
 
 ### Session 4, 3:30-5
 
-**Lecture 5, Big Jobs, Karl, 75 min (includes some workalong activities)**
+**Lecture 5, EDA, Big Jobs, and Automation, Karl, 75 min (includes some workalong activities)**
 [pdf](2017_SISBID_3_05_bigjobs_slides.pdf),
 [printable pdf](2017_SISBID_3_05_bigjobs_printable.pdf),
 [activity 1 spin example](2017_SISBID_3_05_bigjobs_activity1_spin.R),
