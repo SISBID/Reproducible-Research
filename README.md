@@ -12,7 +12,7 @@ Keith A. Baggerly
 
 and  
 
-Karl Broman  
+[Karl Broman](http://kbroman.org)
 [kbroman@biostat.wisc.edu](mailto:kbroman@biostat.wisc.edu)
 
 # Course Goals
@@ -56,27 +56,27 @@ These are from GitHub
 ### Session 1, 8:30-10
 
 **Lecture 0, Basic Intro, Keith, 5-10 min** 
-[pdf](2017_03_00_SISBID_basic_intro.pdf), 
-[printable pdf](2017_03_00_SISBID_basic_intro_printable.pdf)  
 Introduction to the course, administration, course goals  
 Definitions - reproduction vs replication  
+[pdf](2017_SISBID_3_00_basic_intro.pdf),
+[printable pdf](2017_SISBID_3_00_basic_intro_printable.pdf)
 
 **Lecture 1, Intro and Common Problems, Karl, 40 min**
-[pdf](2017_03_01_SISBID_introduction_slides.pdf),
-[printable pdf](2017_03_01_SISBID_introduction_printable.pdf)  
 An introduction to reproducible research by way of 
+[pdf](2017_SISBID_3_01_introduction_slides.pdf),
+[printable pdf](2017_SISBID_3_01_introduction_printable.pdf)
 commonly encountered problems
 
 **Lecture 2, A Train Wreck, Keith, 40 min**
-[pdf](2017_03_02_SISBID_train_wreck.pdf),
-[printable pdf](2017_03_02_SISBID_train_wreck_printable.pdf)  
+[pdf](2017_SISBID_3_02_train_wreck.pdf),
+[printable pdf](2017_SISBID_3_02_train_wreck_printable.pdf)
 A case study describing just how bad things can get, with clinical implications
 
 ### Session 2, 10:30-12
 
 **Lecture 3, R Markdown and Literate Programming, Karl, 45 min** 
-[Rmd example](2017_03_03_SISBID_example.Rmd) 
-[md source](2017_03_03_SISBID_Rmarkdown.md)  
+[RMarkdown notes](2017_SISBID_3_03_Rmarkdown.md)
+[Rmd example](2017_SISBID_3_03_example.Rmd)
 An introduction to R markdown, RStudio, and Literate Programming, with examples illustrating how to produce reproducible reports
 
 **Homework part 1, participants, 45 min**  
@@ -85,9 +85,9 @@ Set up the analysis folder, write the preprocessing script in R markdown, compil
 ### Session 3, 1:30-3
 
 **Lecture 4, R Packages, Keith, 45-60 min (much live demo)**
-[pdf](2017_03_04_SISBID_r_packages.pdf),
-[printable pdf](2017_03_04_SISBID_r_packages_printable.pdf)  
 How to write R packages quickly and easily with devtools, roxygen2, rmarkdown, and knitr - overhead, code, data, vignettes, clean code, and templates 
+[pdf](2017_SISBID_3_04_r_packages.pdf),
+[printable pdf](2017_SISBID_3_04_r_packages_printable.pdf)
 
 **Homework part 2, participants, 30 min**  
 writing a basic package
@@ -95,15 +95,15 @@ writing a basic package
 ### Session 4, 3:30-5
 
 **Lecture 5, Big Jobs, Karl, 75 min (includes some workalong activities)** 
-[pdf](2017_SISBID_03_05_bigjobs_slides.pdf),
-[printable pdf](2017_SISBID_03_05_bigjobs_printable.pdf),
-[activity 1 spin code](2017_SISBID_03_05_bigjobs_activity1_spin.R),
-[activity 2 caching Rmd](2017_SISBID_03_05_bigjobs_activity2_cache.Rmd)  
+[pdf](2017_SISBID_3_05_bigjobs_slides.pdf),
+[printable pdf](2017_SISBID_3_05_bigjobs_printable.pdf),
+[activity 1 spin example](2017_SISBID_3_05_bigjobs_activity1_spin.R),
+[activity 2 caching example](2017_SISBID_3_05_bigjobs_activity2_cache.Rmd)
 A discussion of challenges arising when data or jobs are big enough to make rerunning unpleasant or infeasible
 
 **Lecture 6, Vitamin D, Keith, 10-15 min**
-[pdf](2017_SISBID_03_06_vitamin_d.pdf),
-[printable pdf](2017_SISBID_03_06_vitamin_d.pdf)  
+[pdf](2017_SISBID_3_06_vitamin_d.pdf),
+[printable pdf](2017_SISBID_3_06_vitamin_d_printable.pdf)
 Discussion of how recommendations are set, and reconstruction of analyses obscured by lack of code and misapplied terminology. Linked to course homeworks.
 
 ## Day 2, Jul 18, 2017
@@ -116,12 +116,16 @@ Discussion of how recommendations are set, and reconstruction of analyses obscur
 A review of several factors which can make results harder to replicate (be seen again with new samples) vs hard to reproduce (starting from the same raw data)
 
 **Lecture 8, Git on your Computer, Keith, 50 min, mostly live**  
+[pdf](2017_SISBID_3_08_git_1_solo.pdf)
+[printable pdf](2017_SISBID_3_08_git_1_solo_printable.pdf)
 Using git to track files and versions; init, status, add, commit, branch, checkout, merge
 
 ### Session 6, 10:30-12
 
 **Lecture 9, Git with GitHub, Keith, 45 min**  
 Introducing GitHub, perhaps the "killer app" for git; working with remote repositories, bare repos, cloning, pull, push  
+[pdf](2017_SISBID_3_09_git_2_github.pdf)
+[printable pdf](2017_SISBID_3_09_git_2_github_printable.pdf)
 
 **Homework, participants, 45 min**  
 Establishing a repo at GitHub  
@@ -150,6 +154,8 @@ A review of ongoing efforts within the biostat department at MD Anderson to prod
 ### Session 9, 8:30-10
 
 **Lecture 12, Writing Good Reports, Keith, 45 min**  
+[pdf](2017_SISBID_3_12_good_reports.pdf)
+[printable pdf](2017_SISBID_3_12_good_reports_printable.pdf)
 The "non-codeable" parts of reproducibility - trying to increase the odds your collaborators will understand what it is you're trying to do.
 
 **Homework, participants, 45 min**  
@@ -158,9 +164,9 @@ Automating common tasks with templates - report structures, directory structures
 ### Session 10, 10:30-12
 
 **Lecture 13, Summary and Wrapup, Karl, 45 min**
-[pdf](2017_SISBID_03_13_summary_slides.pdf),
-[printable pdf](2017_SISBID_03_13_summary_printable.pdf)  
 Maintaining the Mindset  
+[pdf](2017_SISBID_3_13_summary_slides.pdf),
+[printable pdf](2017_SISBID_3_13_summary_printable.pdf)
 
 **Final Class Discussion**  
 
