@@ -20,6 +20,8 @@ The following are links to resources of interest to participants in
 ## GNU Make
 
 - [Karl's Minimal Make tutorial](http://kbroman.org/minimal_make)
+- [remake package](https://github.com/richfitz/remake) (GNU Make
+  reimagined for R)
 
 ## Git
 
