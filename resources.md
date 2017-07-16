@@ -8,6 +8,7 @@ The following are links to resources of interest to participants in
 - [R Markdown documentation](https://rmarkdown.rstudio.com)
 - [Knitr in a Knutshell tutorial](http://kbroman.org/knitr_knutshell)
 - [Yihui Xie, Dynamic Documents with R and knitr, 2e (2015)](http://www.amazon.com/Dynamic-Documents-knitr-Second-Chapman-ebook/dp/B00ZBYPJEW/ref=tmm_kin_title_0?_encoding=UTF8&sr=&qid=)
+- [Document templates](http://rmarkdown.rstudio.com/developer_document_templates.html)
 
 ## R Packages
 
@@ -37,6 +38,29 @@ The following are links to resources of interest to participants in
 - [Sharing, publishing, archiving (slides)](http://reproducible-science-curriculum.github.io/2015-06-01-reproducible-science-idigbio/slides/01-publication-slides.html#/)
   from the [Data Carpentry](https://datacarpentry.org)
   [Reproducible Research workshop materials](http://www.datacarpentry.org/rr-workshop/)
+
+## Coding conventions
+
+- [Hadley's recommendations](http://adv-r.had.co.nz/Style.html)
+- [Google's recommendations](https://google.github.io/styleguide/Rguide.xml)
+
+## Code Review
+
+- [Software Carpentry blog post](http://bit.ly/swc_codereview)
+- [Titus Brown's blog post](http://bit.ly/titus_codereview)
+
+## Software testing
+
+- [testthat package](https://github.com/hadley/testthat)
+- [Testing R code (book)](https://www.amazon.com/Testing-Code-Chapman-Hall-CRC/dp/1498763650)
+
+## Dependency management
+
+- [packrat package](https://rstudio.github.io/packrat/)
+- [checkpoint package](https://github.com/revolutionanalytics/checkpoint)
+- [Rocker: docker for R](https://ropensci.org/blog/blog/2014/10/23/introducing-rocker)
+- [R Docker tutorial](http://ropenscilabs.github.io/r-docker-tutorial/)
+
 
 ## Writing
 
