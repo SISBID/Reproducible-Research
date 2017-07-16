@@ -23,6 +23,32 @@ The following are links to resources of interest to participants in
 
 ## Git
 
-- [Nicercode guide to Git branches](https://nicercode.github.io/git/branches.html)
+- [Nice R Code guide to Git branches](https://nicercode.github.io/git/branches.html)
 - [Hadley on Git/GitHub](http://r-pkgs.had.co.nz/git.html)
 - [Git subtrees](https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/)
+- Also look at `git tag` and `git remote` (the latter in the
+  [Leek Group guide to R packages](https://github.com/jtleek/rpackages))
+
+## Sharing
+
+- [Leek Group guide to data sharing](https://github.com/jtleek/datasharing)
+- [Sharing, publishing, archiving (slides)](http://reproducible-science-curriculum.github.io/2015-06-01-reproducible-science-idigbio/slides/01-publication-slides.html#/)
+  from the [Data Carpentry](https://datacarpentry.org)
+  [Reproducible Research workshop materials](http://www.datacarpentry.org/rr-workshop/)
+
+## Writing
+
+- A book on writing:
+  [Style: Lessons in Clarity and Grace](https://www.amazon.com/Style-Lessons-Clarity-Grace-11th/dp/0321898680)
+- [The science of scientific writing (pdf)](https://cseweb.ucsd.edu/~swanson/papers/science-of-writing.pdf)
+- [Turning tables into graphs](http://www.jstor.org/stable/3087382)
+
+## Using C++ code in R packages
+
+- [Rcpp](http://www.rcpp.org/)
+- [Rcpp book](https://www.amazon.com/Seamless-Integration-Rcpp-Dirk-Eddelbuettel/dp/1461468671/ref=sr_1_1?s=books&ie=UTF8&qid=1469034821&sr=1-1&keywords=Rcpp)
+
+## Better graphics
+
+- [ggplot2 book](http://ggplot2.org/book/)
+- [How to display data badly (pdf)](http://www.rci.rutgers.edu/~roos/Courses/grstat502/wainer.pdf)
