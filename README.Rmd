@@ -78,8 +78,9 @@ Definitions - reproduction vs replication
 [pdf](2017_SISBID_3_01_introduction_slides.pdf),
 [printable pdf](2017_SISBID_3_01_introduction_printable.pdf)
 <br/>
-An introduction to reproducible research by way of
-commonly encountered problems
+An introduction to reproducible research by way of commonly
+encountered problems, plus discussion of the organization of project
+files
 
 **Lecture 2, A Train Wreck, Keith, 40 min**
 [pdf](2017_SISBID_3_02_train_wreck.pdf),
@@ -119,7 +120,10 @@ writing a basic package
 [activity 1 spin example](2017_SISBID_3_05_bigjobs_activity1_spin.R),
 [activity 2 caching example](2017_SISBID_3_05_bigjobs_activity2_cache.Rmd)
 <br/>
-A discussion of challenges arising when data or jobs are big enough to make rerunning unpleasant or infeasible
+Capturing exploratory data analysis, handling the challenges
+arising when data or jobs are big enough to make rerunning unpleasant
+or infeasible, and a brief introduction to automation with
+[GNU Make](https://www.gnu.org/software/make/)
 
 **Lecture 6, Vitamin D, Keith, 10-15 min**
 [pdf](2017_SISBID_3_06_vitamin_d.pdf),
@@ -199,7 +203,9 @@ Automating common tasks with templates - report structures, directory structures
 [pdf](2017_SISBID_3_13_summary_slides.pdf),
 [printable pdf](2017_SISBID_3_13_summary_printable.pdf)
 <br/>
-Maintaining the Mindset
+Maintaining the Mindset, summary of the course, sharing your work,
+some links to resources, and brief discussions of topics that we
+didn't cover
 
 **Final Class Discussion**
 
