@@ -91,7 +91,7 @@ A case study describing just how bad things can get, with clinical implications
 ### Session 2, 10:30-12
 
 **Lecture 3, R Markdown and Literate Programming, Karl, 45 min**
-[RMarkdown notes](2017_SISBID_3_03_Rmarkdown.md)
+[RMarkdown notes](2017_SISBID_3_03_Rmarkdown.md),
 [Rmd example](2017_SISBID_3_03_example.Rmd)
 <br/>
 An introduction to R markdown, RStudio, and Literate Programming, with examples illustrating how to produce reproducible reports
