@@ -101,7 +101,7 @@ that it's saved in the correct place.
   (in R)
 
 - Markdown features such as for `<URLs>`, `**bold**`, `## Sections`,
-  and `in-line code`. And three "backticks" for multi-line chunks of
+  and `` `in-line code` ``. And three "backticks" for multi-line chunks of
   code.
 
 - The chunks of code starting with a line like
