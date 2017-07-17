@@ -26,21 +26,17 @@ and
 
 # Course Goals
 
-* Course Goals
-<br/>
-[pdf](RRcourse_goals.pdf),
-[html](RRcourse_goals.html),
-[MS Word](RRcourse_goals.docx),
-[Rmd Source](RRcourse_goals.Rmd)
+- [pdf](RRcourse_goals.pdf)
+- [html](RRcourse_goals.html)
+- [MS Word](RRcourse_goals.docx)
+- [Rmd Source](RRcourse_goals.Rmd)
 
 # Homework
 
-* Homework
-<br/>
-[pdf](homework.pdf),
-[html](homework.html),
-[MS Word](homework.docx),
-[Rmd Source](homework.Rmd)
+- [pdf](homework.pdf)
+- [html](homework.html)
+- [MS Word](homework.docx)
+- [Rmd Source](homework.Rmd)
 
 # Cheat Sheets
 
