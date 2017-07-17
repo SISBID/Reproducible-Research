@@ -84,7 +84,7 @@ A case study describing just how bad things can get, with clinical implications
 ### Session 2, 10:30-12
 
 **Lecture 3, R Markdown and Literate Programming, Karl, 45 min**
-[RMarkdown notes](2017_SISBID_3_03_Rmarkdown.md)
+[RMarkdown notes](2017_SISBID_3_03_Rmarkdown.md),
 [Rmd example](2017_SISBID_3_03_example.Rmd)
 <br/>
 An introduction to R markdown, RStudio, and Literate Programming, with examples illustrating how to produce reproducible reports
@@ -135,7 +135,7 @@ Discussion of how recommendations are set, and reconstruction of analyses obscur
 A review of several factors which can make results harder to replicate (be seen again with new samples) vs hard to reproduce (starting from the same raw data)
 
 **Lecture 8, Git on your Computer, Keith, 50 min, mostly live**
-[pdf](2017_SISBID_3_08_git_1_solo.pdf)
+[pdf](2017_SISBID_3_08_git_1_solo.pdf),
 [printable pdf](2017_SISBID_3_08_git_1_solo_printable.pdf)
 <br/>
 Using git to track files and versions; init, status, add, commit, branch, checkout, merge
@@ -143,7 +143,7 @@ Using git to track files and versions; init, status, add, commit, branch, checko
 ### Session 6, 10:30-12
 
 **Lecture 9, Git with GitHub, Keith, 45 min**
-[pdf](2017_SISBID_3_09_git_2_github.pdf)
+[pdf](2017_SISBID_3_09_git_2_github.pdf),
 [printable pdf](2017_SISBID_3_09_git_2_github_printable.pdf)
 <br/>
 Introducing GitHub, perhaps the "killer app" for git; working with remote repositories, bare repos, cloning, pull, push
@@ -159,6 +159,8 @@ This session will be a mixture of lecture and live demo.
 ### Session 7, 1:30-3
 
 **Lecture 10, Collaborating with Git, Keith, 45 min**
+[pdf](2017_SISBID_3_10_git_3_collab.pdf),
+[printable pdf](2017_SISBID_3_10_git_3_collab_printable.pdf)
 <br/>
 Working with others, making comments, providing feedback, fixing errors
 
@@ -173,6 +175,8 @@ Working with your neighbor's repos
 Add comments and vignettes to your package on GitHub
 
 **Lecture 11, Implementing RR at MDACC, Keith, 45 min**
+[pdf](2017_SISBID_3_11_mdacc_start.pdf),
+[printable pdf](2017_SISBID_3_11_mdacc_start_printable.pdf)
 <br/>
 A review of ongoing efforts within the biostat department at MD Anderson to produce reproducible reports, and how we took a report written a few years ago using a mix of R and Stata and revamped it in R/rmarkdown to emulate not just the results but also the "look and feel" of the initial MS word output. Hits on tables and figures in rmarkdown, references, reformatting headers.
 
@@ -181,7 +185,7 @@ A review of ongoing efforts within the biostat department at MD Anderson to prod
 ### Session 9, 8:30-10
 
 **Lecture 12, Writing Good Reports, Keith, 45 min**
-[pdf](2017_SISBID_3_12_good_reports.pdf)
+[pdf](2017_SISBID_3_12_good_reports.pdf),
 [printable pdf](2017_SISBID_3_12_good_reports_printable.pdf)
 <br/>
 The "non-codeable" parts of reproducibility - trying to increase the odds your collaborators will understand what it is you're trying to do.
