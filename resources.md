@@ -26,8 +26,9 @@ The following are links to resources of interest to participants in
 
 ## Git
 
-- [Nice R Code guide to Git branches](https://nicercode.github.io/git/branches.html)
+- [Happy Git and GitHub for the useR](http://happygitwithr.com/)
 - [Hadley on Git/GitHub](http://r-pkgs.had.co.nz/git.html)
+- [Nice R Code guide to Git branches](https://nicercode.github.io/git/branches.html)
 - [Git subtrees](https://developer.atlassian.com/blog/2015/05/the-power-of-git-subtree/)
 - Also look at `git tag` and `git remote` (the latter in the
   [Leek Group guide to R packages](https://github.com/jtleek/rpackages))
