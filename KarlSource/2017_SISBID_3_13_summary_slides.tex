@@ -76,6 +76,113 @@ will be reproducible.
 
 
 
+\begin{frame}[c]{Make with R Markdown}
+
+
+To use Make with R Markdown, you need to tell your operating system
+where it can find \href{https://pandoc.org/}{pandoc}.
+\href{http://www.rstudio.com}{RStudio} includes pandoc, but you need
+to add the relevant directory to your {\tt PATH}.
+
+\vspace{24pt}
+
+\hspace{3mm} {\hilit Mac}:
+
+\vspace{6pt}
+
+\hspace{9mm} {\ttsm /Applications/RStudio.app/Contents/MacOS/pandoc}
+
+\vspace{24pt}
+
+\hspace{3mm} {\hilit Windows}:
+
+\vspace{6pt}
+
+\hspace{9mm} {\ttsm "c:{\textbackslash}Program Files{\textbackslash}RStudio{\textbackslash}bin{\textbackslash}pandoc"}
+
+\end{frame}
+
+
+\begin{frame}[fragile]{{\tt {\textasciitilde}/.bash\_profile}}
+
+\vspace{-12pt}
+
+\begin{semiverbatim}
+\begin{lstlisting}
+export PATH=$PATH:/Applications/RStudio.app/Contents/MacOS/pandoc
+
+noclobber=1    # prevent overwriting of files
+IGNOREEOF=1    # disable Ctrl-D as a way to exit
+HISTCONTROL=ignoredups
+
+alias cl='clear;cd'
+alias rm='rm -i'
+alias mv='mv -i'
+alias cp='cp -i'
+alias ls='ls -GF'
+alias 'l.'='ls -d .[a-zA-Z]*'
+alias ll='ls -lh'
+alias md='mkdir'
+alias rd='rmdir'
+alias rmb='rm .*~ *~ *.bak *.bk!'
+
+alias Rb='R CMD build --force --resave-data'
+alias Ri='R CMD INSTALL --library=/Users/kbroman/Rlibs'
+alias Rc='R CMD check --library=/Users/kbroman/Rlibs'
+alias Rcc='R CMD check --as-cran --library=/Users/kbroman/Rlibs'
+\end{lstlisting}
+\end{semiverbatim}
+
+
+\note{Use the {\tt .bash\_profile} file to define various
+  variables and aliases to make your life easier.
+
+The most important variable is {\tt PATH}: it defines the set of
+directories where the shell will look for executable programs.
+If ``{\tt .}'' isn't part of your {\tt PATH}, you'll need to type
+something like {\tt ./myscript.py} to execute a script in your working
+directory. So put ``{\tt .}'' in your {\tt PATH}.
+
+My {\tt .bash\_profile} file sources a {\tt .bashrc} file; I don't
+quite understand when one is used versus the other. Google ``{\tt .bashrc
+vs .bash\_profile}.''
+There are links to my {\tt .bash\_profile} and {\tt .bashrc} files on
+the resources page at the course web site; some of it might just be
+total crap.
+
+If you're using Windows and Git Bash, the {\tt .bash\_profile} file
+will be in your Documents folder (I think).
+
+Important note: use of aliases within your code will create
+reproducibility issues; another user will need those same aliases.
+Consider testing your code on a more basic account.
+}
+
+\end{frame}
+
+
+\begin{frame}[c]{{\tt PATH} in Windows}
+
+\only<1 | handout 0>{\figw{Figs/win_path_1.png}{0.95}}
+\only<2 | handout 0>{\figw{Figs/win_path_2.png}{0.95}}
+\only<3>{\figw{Figs/win_path_3.png}{0.95}}
+
+\note{With Git Bash, you can have a {\tt {\textasciitilde}/.bash\_profile}
+  file that adds stuff to your {\tt PATH}, just as in Mac OS X and Linux.
+
+  But things will also be added to the {\tt PATH} variable via the
+  Path system variable and/or a Path user variable.
+  You can get to these via the ``Control panel,'' but it's a bit
+  cumbersome.
+
+  The simplest way to get to the relevant dialog box seems to be to
+  click Win-w (the little windows key and the w key) and searching for
+  ``path''.
+}
+
+\end{frame}
+
+
 \begin{frame}[c]{Challenges}
 
 
