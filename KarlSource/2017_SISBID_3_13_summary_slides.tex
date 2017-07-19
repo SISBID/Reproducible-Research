@@ -79,7 +79,15 @@ will be reproducible.
 \begin{frame}[c]{Make with R Markdown}
 
 
-To use Make with R Markdown, you need to tell your operating system
+  To use Make with R Markdown, you'll use a command like:
+
+  \vspace{3mm}
+
+  {\tt R -e "rmarkdown::render('my\_report.Rmd')"}
+
+  \vspace{3mm}
+
+  You'll need to tell your operating system
 where it can find \href{https://pandoc.org/}{pandoc}.
 \href{http://www.rstudio.com}{RStudio} includes pandoc, but you need
 to add the relevant directory to your {\tt PATH}.
@@ -99,6 +107,13 @@ to add the relevant directory to your {\tt PATH}.
 \vspace{6pt}
 
 \hspace{9mm} {\ttsm "c:{\textbackslash}Program Files{\textbackslash}RStudio{\textbackslash}bin{\textbackslash}pandoc"}
+
+\note{
+    To use GNU Make with R Markdown, you'll need to be able to turn
+    the thing into HTML (or PDF or Word) from the command line. The
+    key trick is getting the operating system to know where pandoc can
+    be located.  You may also need to tell it about the location of R.
+}
 
 \end{frame}
 
